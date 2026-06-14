@@ -20,4 +20,4 @@ This release directory was generated from `NPJ_submission/code` and the processe
 
 ## Note before public release
 
-Review `CITATION.cff` and replace the placeholder GitHub URL with the final repository URL. After creating a GitHub release, connect the repository to Zenodo or Code Ocean to mint a permanent DOI.
+After creating a GitHub release, connect the repository to Zenodo or Code Ocean to mint a permanent DOI and add that DOI to the manuscript Code availability statement and reference list.

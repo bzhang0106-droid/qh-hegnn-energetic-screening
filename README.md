@@ -34,4 +34,4 @@ The included scripts reproduce parsed-table analyses and lightweight source-data
 
 ## Citation and DOI
 
-This directory is ready to be pushed to GitHub. For npj/Nature Portfolio submission, archive a tagged GitHub release through Zenodo or Code Ocean and replace the placeholder repository URL in `CITATION.cff` with the final URL/DOI.
+For npj/Nature Portfolio submission, archive a tagged GitHub release through Zenodo or Code Ocean and add the resulting DOI to the manuscript Code availability statement and reference list.

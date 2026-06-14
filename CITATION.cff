@@ -5,8 +5,8 @@ version: "1.0.0"
 date-released: "2026-06-14"
 authors:
   - name: "QH-HEGNN manuscript authors"
-repository-code: "https://github.com/UPDATE-OWNER/qh-hegnn-energetic-screening"
-url: "https://github.com/UPDATE-OWNER/qh-hegnn-energetic-screening"
+repository-code: "https://github.com/bzhang0106-droid/qh-hegnn-energetic-screening"
+url: "https://github.com/bzhang0106-droid/qh-hegnn-energetic-screening"
 license: "MIT"
 keywords:
   - energetic materials
