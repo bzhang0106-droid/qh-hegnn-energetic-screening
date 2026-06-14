@@ -1,0 +1,12 @@
+{
+  "target": "D:\\aFILE\\含能分子\\论文\\论文1\\NPJ_submission\\github_release_qh_hegnn_20260614",
+  "files_copied": 83,
+  "categories": [
+    "analysis_script",
+    "core_script",
+    "legacy_workflow_snapshot",
+    "paper1_code_package_document",
+    "processed_data_for_smoke_test",
+    "slurm_template"
+  ]
+}

@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments
+.env
+.venv/
+venv/
+env/
+conda-meta/
+
+# Local editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Generated reviewer outputs
+reviewer_minimal_check/
+outputs/
+results/
+tmp/
+temp/
+scratch/
+xtb_calc/
+temp_calc/
+
+# Quantum-chemistry and HPC scratch
+*.gbw
+*.densities
+*.densitiesinfo
+*.hess
+*.engrad
+*.tmp
+*.chk
+*.wfn
+*.wfx
+*.molden.input
+slurm-*.out
+*.log
+
+# Large/local artifacts not intended for GitHub
+*.docx
+*.pptx
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.joblib
+*.pth
+*.pt
+
+# Credentials and transfer configs
+.ssh/
+id_rsa*
+*.ppk
+*sftp*
+*bitvise*
+*token*
+*secret*

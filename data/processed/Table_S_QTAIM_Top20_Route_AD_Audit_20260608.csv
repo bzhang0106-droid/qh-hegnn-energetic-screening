@@ -1,0 +1,2 @@
+Set,N_candidates,N_BDE_ge_120_kJmol,N_BDE_ge_50_kcalmol,N_SYBA_positive,N_AiZynthFinder_HTTP_or_run_completed,AiZynthFinder_total_candidate_routes,AiZynthFinder_total_solved_routes,N_AiZynthFinder_solved_to_stock,N_ASKCOS_HTTP200,ASKCOS_total_paths,ASKCOS_pathways_returned,N_ASKCOS_paths_positive,Evidence_boundary
+QTAIM_Top20_candidate_specific_route_audit_20260608,20,20,18,17,20,1548,0,0,20,0,0,0,candidate-specific QTAIM Top20 route planning; no purchasable-stock solved route under AiZynthFinder and no returned ASKCOS MCTS pathway under public endpoint settings
