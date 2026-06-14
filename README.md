@@ -34,4 +34,9 @@ The included scripts reproduce parsed-table analyses and lightweight source-data
 
 ## Citation and DOI
 
-For npj/Nature Portfolio submission, archive a tagged GitHub release through Zenodo or Code Ocean and add the resulting DOI to the manuscript Code availability statement and reference list.
+The archived manuscript code release is available on Zenodo:
+
+- Version DOI: https://doi.org/10.5281/zenodo.20685580
+- All-versions DOI: https://doi.org/10.5281/zenodo.20685579
+
+Please cite the fixed version DOI for the manuscript release.
