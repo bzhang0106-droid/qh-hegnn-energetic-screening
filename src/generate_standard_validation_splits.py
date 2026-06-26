@@ -28,7 +28,7 @@ MAX_VALIDATION_GROUP_FRACTION = 0.12
 
 
 def load_training_module(script_path: Path):
-    spec = importlib.util.spec_from_file_location("qh_hegnn_hgs_repair_for_split_generation", script_path)
+    spec = importlib.util.spec_from_file_location("qh_hegnn_train_for_split_generation", script_path)
     mod = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     sys.modules[spec.name] = mod
@@ -156,12 +156,12 @@ def leakage_count(idx_a: Iterable[int], idx_b: Iterable[int], keys: list[str]) -
 
 
 def main() -> None:
-    work = Path(os.environ.get("QH_HEGNN_WORK", "/scratch/gma/bzhang/codex_vsbde_qh_hegnn_controlled_eval_20260624")).resolve()
-    script_dir = work / "scripts_hgs_repair_20260625"
-    split_dir = work / "splits" / "standard_3split_hgs_20260626"
+    work = Path(os.environ.get("QH_HEGNN_WORK", "/scratch/gma/bzhang/qh_hegnn_standard_validation")).resolve()
+    script_dir = Path(os.environ.get("QH_HEGNN_SCRIPT_DIR", str(work / "src"))).resolve()
+    split_dir = Path(os.environ.get("QH_HEGNN_SPLIT_DIR", str(work / "splits" / "standard_validation"))).resolve()
     split_dir.mkdir(parents=True, exist_ok=True)
 
-    mod = load_training_module(script_dir / "03_egnn_painn_train_truephys_hgs_repair_20260625.py")
+    mod = load_training_module(script_dir / "03_egnn_painn_train.py")
     os.chdir(script_dir)
     df = mod.load_training_dataframe()
     raw_examples = mod.build_raw_examples(df)
@@ -177,7 +177,12 @@ def main() -> None:
     scaffolds = [murcko_key(s) for s in smiles]
     fps = make_fingerprints(smiles)
 
-    true_phys_path = Path("/scratch/gma/bzhang/codex_vsbde_true_phys_features_20260624/true_phys_features_merged_20260624.csv")
+    true_phys_path = Path(
+        os.environ.get(
+            "QH_HEGNN_PHYSICS_FEATURE_TABLE",
+            "/scratch/gma/bzhang/qh_hegnn_standard_validation/data/physics_features_merged.csv",
+        )
+    )
     true_status: dict[int, str] = {}
     source_group: dict[int, str] = {}
     if true_phys_path.exists():
@@ -227,8 +232,8 @@ def main() -> None:
                 "val_idx": val,
                 "notes": {
                     "generated_at": "2026-06-26",
-                    "model_branch": "true-phys/HGS repair",
-                    "validation_policy": "standard Fig.4 Random/Scaffold/Butina 80/20 splits on HGS-aligned examples",
+                    "model_branch": "QH-HEGNN final specialist",
+                    "validation_policy": "Random/Scaffold/Butina 80/20 validation splits on physics-feature-aligned examples",
                     "calibration_policy": "10% of non-validation rows; validation labels held out",
                 },
             }
@@ -278,11 +283,11 @@ def main() -> None:
                     }
                 )
 
-    with (split_dir / "run_cases_standard_3split_hgs_20260626.tsv").open("w", encoding="utf-8", newline="") as f:
+    with (split_dir / "run_cases_standard_validation.tsv").open("w", encoding="utf-8", newline="") as f:
         for row in run_cases:
             f.write("\t".join(map(str, row)) + "\n")
-    pd.DataFrame(inventory).to_csv(split_dir / "standard_3split_hgs_inventory_20260626.csv", index=False)
-    pd.DataFrame(test_rows).to_csv(split_dir / "standard_3split_hgs_testrows_20260626.csv", index=False)
+    pd.DataFrame(inventory).to_csv(split_dir / "standard_validation_inventory.csv", index=False)
+    pd.DataFrame(test_rows).to_csv(split_dir / "Model_Robustness_Validation_Rows.csv", index=False)
 
     print(f"aligned_n={len(aligned)}")
     print(f"split_dir={split_dir}")

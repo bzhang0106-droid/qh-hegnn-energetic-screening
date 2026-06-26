@@ -1,6 +1,7 @@
 {
-  "target": "NPJ_submission/github_release_qh_hegnn_20260614",
-  "version": "1.0.2",
+  "package": "qh-hegnn-energetic-screening",
+  "version": "v1.0.2",
+  "release_date": "2026-06-26",
   "files_listed": 68,
   "categories": [
     "core_script",
@@ -9,6 +10,10 @@
     "release_metadata",
     "slurm_template"
   ],
-  "updated_at": "2026-06-26",
-  "notes": "Strict cleaned package: manuscript-related code, final Fig. 1/Fig. 4 source scripts, processed source data, Slurm templates and documentation only."
+  "canonical_training_entry": "src/03_egnn_painn_train.py",
+  "validation_entry_points": [
+    "src/generate_standard_validation_splits.py",
+    "src/run_qh_hegnn_controlled_split.py"
+  ],
+  "notes": "Formal manuscript code/data release: core computational scripts, processed source data, Slurm templates and documentation only."
 }

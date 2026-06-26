@@ -1,410 +1,410 @@
 [
   {
     "category": "release_metadata",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": ".gitattributes",
-    "reason": "Repository metadata."
+    "reason": "Repository metadata for the formal release package."
   },
   {
     "category": "release_metadata",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": ".gitignore",
-    "reason": "Repository metadata."
+    "reason": "Repository metadata for the formal release package."
   },
   {
     "category": "release_metadata",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "CITATION.cff",
-    "reason": "Repository metadata."
+    "reason": "Repository metadata for the formal release package."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "data\\processed\\Figure_1a_generation_screening_stream_refined_NPJstyle_20260626_source.csv",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "data\\processed\\Model_Robustness_Validation_Predictions_Long.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "data\\processed\\Figure_4_truephys_hgs_standard_3split_narrative_atlas_source_20260626.csv",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "data\\processed\\Model_Robustness_Validation_R2_Summary.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "data\\processed\\Model_Robustness_Validation_Rows.csv",
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
+  },
+  {
+    "category": "processed_data",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\README_SUPPLEMENTARY_DATA_SYNCED.md",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "data\\processed\\standard_3split_hgs_testrows_20260626.csv",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "data\\processed\\Source_Data_Model_Robustness_Applicability.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "data\\processed\\Source_Data_Screening_Workflow.csv",
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
+  },
+  {
+    "category": "processed_data",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Supplementary_Data_1_Curated_5432_Molecule_Database.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Supplementary_Data_2_Target_Matrix_10D.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Supplementary_Data_3_xTB_Feature_Matrix_10D.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Supplementary_Data_4_Validation_Predictions_Final_Hybrid_seed42.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Supplementary_Data_5_Final_Global_Top20_Retrosynthesis_Input.smi",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Supplementary_Data_6_Common_Energetic_Molecules_DLPNoMP2_Enthalpy.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Table_2_QTAIM_Aware_Stability_Constrained_Top20_20260607.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Table_S_Figure3_HELS_10Target_Parity_Metrics_20260608.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Table_S_QTAIM_Counterfactual_Selection_20260607.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "data\\processed\\Table_S_QTAIM_Top20_Route_AD_Audit_20260608.csv",
     "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "data\\processed\\truephys_hgs_standard_3split_prediction_long_20260626.csv",
-    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
-  },
-  {
-    "category": "processed_data",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "data\\processed\\truephys_hgs_standard_3split_qh_hegnn_r2_summary_20260626.csv",
-    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
-  },
-  {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\COMPUTATIONAL_PROVENANCE.md",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\FILE_SELECTION_NOTES.md",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\paper1_code_package\\CODE_PACKAGE_MANIFEST_20260626.csv",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\paper1_code_package\\ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\paper1_code_package\\environment_energetic_gnn_no_builds.yml",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\paper1_code_package\\README_CODE_RELEASE.md",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\paper1_code_package\\requirements.txt",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "docs\\RELEASE_NOTES_v1.0.2.md",
-    "reason": "Release, provenance, environment, or package documentation."
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_metadata",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "LICENSE",
-    "reason": "Repository metadata."
+    "reason": "Repository metadata for the formal release package."
+  },
+  {
+    "category": "release_document",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "README.md",
+    "reason": "Release, provenance, environment or package documentation."
   },
   {
     "category": "release_metadata",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "README.md",
-    "reason": "Repository metadata."
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "RELEASE_BUILD_SUMMARY.json",
+    "reason": "Repository metadata for the formal release package."
+  },
+  {
+    "category": "release_metadata",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "RELEASE_FILE_MANIFEST.csv",
+    "reason": "Repository metadata for the formal release package."
+  },
+  {
+    "category": "release_metadata",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "RELEASE_FILE_MANIFEST.json",
+    "reason": "Repository metadata for the formal release package."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "slurm_templates\\run_03_10d_bde_AL08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "slurm_templates\\run_03_10d_bde_AL08_seed_stability_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "slurm_templates\\run_08a_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "slurm_templates\\run_p4_and_final_report_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "slurm_templates\\run_post08b18_20_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "slurm_templates\\run_qh_hegnn_truephys_hgs_standard_3split_20260626.slurm",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "slurm_templates\\run_qh_hegnn_standard_validation.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "slurm_templates\\run_summarize_multiseed_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "slurm_templates\\run_true_phys_feature_extract_20260624.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\03_egnn_painn_train.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "src\\03_egnn_painn_train_truephys_hgs_repair_20260625.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
-  },
-  {
-    "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\04_ultimate_discovery.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\05_physics_purifier.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\05b_extract_candidates.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\07_kamlet_jacobs_eval.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\08a_run_multiwfn_critic2.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\08b_ultimate_merge.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\09_eda_analysis.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\11_log_evaluation.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\12_density_calibration_database.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\13b_candidate_space_al_pareto.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\14_ood_trigger_ablation.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\18_build_10d_target_matrix.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\20_prepare_xtb_missing_for_current_db.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\21_finalize_al_iteration.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\23_top_synthesizability_evidence.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\add_final_heat_of_explosion_q_outputs_20260607.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\compute_final_synthesis_readiness_deepaudit_20260606.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "src\\generate_truephys_hgs_standard_splits_20260626.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "src\\generate_standard_validation_splits.py",
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\integrate_external_retrosynthesis_into_final_database_20260606.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\merge_final_top20_external_retrosynthesis_20260606.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\parse_aizynthfinder_final_top20_20260606.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\parse_top20_qm_validation_summary_20260607.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "src\\plot_fig4_truephys_hgs_standard_3split_release_20260626.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
-  },
-  {
-    "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "src\\qh_hegnn_truephys_hgs_repair_wrapper_20260625.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
-  },
-  {
-    "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
-    "destination": "src\\redesign_figure1a_screening_stream_refined_20260626.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
-  },
-  {
-    "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\render_qtaim_vmd_mechanism_20260607.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\run_npj_targetwise_leakage_masking_ablation_20260607.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
+    "destination": "src\\run_qh_hegnn_controlled_split.py",
+    "reason": "Manuscript-related computational, data-processing or validation script."
+  },
+  {
+    "category": "core_script",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\summarize_multiseed_al08_20260605.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned v1.0.2 local release package",
+    "source": "formal v1.0.2 manuscript code/data release",
     "destination": "src\\true_phys_feature_extractor_20260624.py",
-    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
+    "reason": "Manuscript-related computational, data-processing or validation script."
   }
 ]

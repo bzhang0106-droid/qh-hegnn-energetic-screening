@@ -1,7 +1,7 @@
 """
 03_egnn_painn_train.py
 
-Clean HELS 10-target training script with aligned vertical BDE labels.
+Clean HELS 9-target training script with aligned vertical BDE labels.
 
 Core modes
 ----------
@@ -14,11 +14,15 @@ Core modes
    This is retained only as a manuscript baseline.
 
 3. final_specialist
-   Final-Specialist v2:
+   Final-Specialist model:
    target-wise 2D+xTB specialist teacher ensemble + xTB-aware EGNN residual correction.
-   Codex 2026-06-02 extension:
+   Physics-aware extension:
    optional weak-bond/BDE manifest descriptors, conservative residual gating,
    and npj/SI model-evidence exports.
+   Surface-ESP/QTAIM descriptors:
+   surface-ESP intermediate descriptors for VS/Sigma2/Nu, trigger-bond-local
+   QTAIM-proxy descriptors for rhoBCP transfer, and Molecular_Weight removed
+   from the extrapolation target set.
 
 Design notes
 ------------
@@ -49,7 +53,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from rdkit import Chem, DataStructs
-from rdkit.Chem import Descriptors, rdMolDescriptors, rdFingerprintGenerator
+from rdkit.Chem import Descriptors, QED, rdMolDescriptors, rdFingerprintGenerator
 from tqdm import tqdm
 from torch_geometric.data import Data, Dataset
 from torch_geometric.loader import DataLoader
@@ -73,7 +77,6 @@ TARGET_PROPS = [
     "Sigma2_tot",
     "Nu",
     "Trigger_Bond_Rho",
-    "Molecular_Weight",
     "Vertical_BDE(kcal/mol)",
 ]
 
@@ -117,6 +120,52 @@ BDE_VALUE_CANDIDATE_COLS: List[str] = []
 
 BDE_BOND_TYPES = ["C-N", "N-N", "N-O", "O-O", "C-O", "C-C"]
 
+TRUE_PHYS_STATUS_FEATURE_NAMES = [
+    "truephys_extract_ok",
+    "truephys_esp_ok",
+    "truephys_qtaim_ok",
+    "truephys_partial",
+]
+
+TRUE_PHYS_DIRECT_LEAKAGE_FEATURES = {
+    # Density_calc is itself a molecular-volume proxy in this dataset; the
+    # surface-volume density estimate is therefore treated as direct leakage.
+    "phys_esp_est_density_gcm3",
+    # VS_max direct equivalents.
+    "phys_esp_global_max_au",
+    "phys_esp_vs_max_kcal",
+    # Sigma2_tot / Nu direct equivalents and immediate components.
+    "phys_esp_sigma2_tot_au2",
+    "phys_esp_sigma2_tot_kcal2",
+    "phys_esp_variance_positive_au2",
+    "phys_esp_variance_positive_kcal2",
+    "phys_esp_variance_negative_au2",
+    "phys_esp_variance_negative_kcal2",
+    "phys_esp_nu",
+    "phys_esp_sigma2_nu_au2",
+    "phys_esp_sigma2_nu_kcal2",
+    # Trigger_Bond_Rho direct equivalents.
+    "phys_qtaim_trigger_bcp_rho",
+    "phys_qtaim_trigger_bcp_sign_lambda2_rho",
+}
+
+TRUE_PHYS_TARGET_LEAKAGE_FEATURES = {
+    "Density_calc(g/cm3)": {"phys_esp_est_density_gcm3"},
+    "VS_max": {"phys_esp_global_max_au", "phys_esp_vs_max_kcal"},
+    "Sigma2_tot": {
+        "phys_esp_sigma2_tot_au2",
+        "phys_esp_sigma2_tot_kcal2",
+        "phys_esp_variance_positive_au2",
+        "phys_esp_variance_positive_kcal2",
+        "phys_esp_variance_negative_au2",
+        "phys_esp_variance_negative_kcal2",
+        "phys_esp_sigma2_nu_au2",
+        "phys_esp_sigma2_nu_kcal2",
+    },
+    "Nu": {"phys_esp_nu", "phys_esp_sigma2_nu_au2", "phys_esp_sigma2_nu_kcal2"},
+    "Trigger_Bond_Rho": {"phys_qtaim_trigger_bcp_rho", "phys_qtaim_trigger_bcp_sign_lambda2_rho"},
+}
+
 
 PRETTY_TARGETS = {
     "Density_calc(g/cm3)": "Density",
@@ -127,7 +176,6 @@ PRETTY_TARGETS = {
     "Sigma2_tot": "Sigma2_tot",
     "Nu": "Nu",
     "Trigger_Bond_Rho": "Trigger_Bond_Rho",
-    "Molecular_Weight": "Molecular_Weight",
     "Vertical_BDE(kcal/mol)": "Vertical_BDE",
 }
 
@@ -164,9 +212,47 @@ TWO_D_FEATURE_NAMES = [
     "Nitrogen_Oxygen_Ratio",
     "Explosophore_Count",
     "Trigger_Linkage_Count",
+
+    # HOF/Gap/SA strict-scaffold robustness descriptors.
+    "NumCarbon",
+    "NumHydrogen",
+    "NumOxygen",
+    "HeavyAtomCount",
+    "Carbon_Fraction",
+    "Oxygen_Fraction",
+    "Heteroatom_Fraction",
+    "Hydrogen_Nitrogen_Ratio",
+    "TPSA",
+    "LabuteASA",
+    "NumRotatableBonds",
+    "NumAliphaticRings",
+    "NumSaturatedRings",
+    "NumBridgeheadAtoms",
+    "NumSpiroAtoms",
+    "FractionCSP3",
+    "NumHBA",
+    "NumHBD",
+    "QED",
+    "BertzCT",
+    "Num_Furoxan",
+    "Energetic_Fragment_Count",
+    "Ring_Complexity",
+    "SA_Complexity_Proxy",
 ]
 
 ATOMIC_NUMS = {"H": 1, "C": 6, "N": 7, "O": 8, "F": 9, "Cl": 17}
+
+ROBUSTNESS_TARGETS = {
+    "Heat_of_Formation(kcal/mol)",
+    "HOMO_LUMO_Gap(eV)",
+    "SAscore",
+}
+
+ROBUSTNESS_TEACHER_MODELS = {
+    "Heat_of_Formation(kcal/mol)": {"Ridge", "RidgeRobust", "ElasticNet", "Huber", "XGBoostShallow", "HistGBRRegularized"},
+    "HOMO_LUMO_Gap(eV)": {"Ridge", "RidgeRobust", "ElasticNet", "Huber", "HistGBRRegularized"},
+    "SAscore": {"Ridge", "RidgeRobust", "ElasticNet", "Huber", "ExtraTrees", "HistGBRRegularized"},
+}
 
 
 
@@ -212,7 +298,8 @@ def apply_target_profile_defaults(args: argparse.Namespace) -> argparse.Namespac
         args.loss_weight_mode = "focus_electronic"
         args.teacher_top_k = max(args.teacher_top_k, 4)
         args.teacher_cv_folds = max(args.teacher_cv_folds, 5)
-        args.include_mlp_teacher = True
+        if not getattr(args, "disable_mlp_teacher", False):
+            args.include_mlp_teacher = True
         args.alpha_max = max(args.alpha_max, 0.75)
         args.alpha_step = min(args.alpha_step, 0.025)
         args.alpha_min_improvement = min(args.alpha_min_improvement, 0.002)
@@ -501,6 +588,12 @@ def _feature_category(name: str) -> str:
         return "compact energetic descriptor"
     if name.startswith("eng_"):
         return "engineered xTB interaction"
+    if name.startswith("truephys_"):
+        return "true-phys status descriptor"
+    if name.startswith("phys_esp_"):
+        return "true surface-ESP descriptor"
+    if name.startswith("phys_qtaim_"):
+        return "true QTAIM/rhoBCP descriptor"
     if name.startswith("bde_"):
         return "optional BDE/weak-bond descriptor"
     if name.startswith("xtb_"):
@@ -824,6 +917,7 @@ def extract_2d_features(smiles: str) -> List[float]:
     num_n = sum(1 for atom in mol.GetAtoms() if atom.GetAtomicNum() == 7)
     num_o = sum(1 for atom in mol.GetAtoms() if atom.GetAtomicNum() == 8)
     heavy = max(1, mol.GetNumHeavyAtoms())
+    mol_h = Chem.AddHs(mol)
 
     # Original descriptors
     exact_mw = float(Descriptors.ExactMolWt(mol))
@@ -851,7 +945,7 @@ def extract_2d_features(smiles: str) -> List[float]:
 
     # OB100 = 1600 * (O - 2C - H/2) / MW
     c = sum(1 for atom in mol.GetAtoms() if atom.GetAtomicNum() == 6)
-    h = sum(1 for atom in Chem.AddHs(mol).GetAtoms() if atom.GetAtomicNum() == 1)
+    h = sum(1 for atom in mol_h.GetAtoms() if atom.GetAtomicNum() == 1)
     oxygen_balance_100 = float(1600.0 * (num_o - 2.0 * c - 0.5 * h) / max(exact_mw, 1e-6))
 
     dbe = float(_calc_dbe(mol))
@@ -875,6 +969,57 @@ def extract_2d_features(smiles: str) -> List[float]:
         + num_n_eq_n
         + num_azide
         + num_gem_dinitro
+    )
+
+    num_furoxan = float(_safe_smarts_count(mol, "[n+]1([O-])onc[c,n]1"))
+    carbon_fraction = float(c / heavy)
+    oxygen_fraction = float(num_o / heavy)
+    hetero_fraction = float(num_hetero / heavy)
+    hydrogen_nitrogen_ratio = float(h / max(num_n, 1))
+    tpsa = float(rdMolDescriptors.CalcTPSA(mol))
+    labute_asa = float(rdMolDescriptors.CalcLabuteASA(mol))
+    rot_bonds = float(rdMolDescriptors.CalcNumRotatableBonds(mol))
+    aliphatic_rings = float(rdMolDescriptors.CalcNumAliphaticRings(mol))
+    saturated_rings = float(rdMolDescriptors.CalcNumSaturatedRings(mol))
+    bridgehead_atoms = float(rdMolDescriptors.CalcNumBridgeheadAtoms(mol))
+    spiro_atoms = float(rdMolDescriptors.CalcNumSpiroAtoms(mol))
+    fraction_csp3 = float(rdMolDescriptors.CalcFractionCSP3(mol))
+    num_hba = float(rdMolDescriptors.CalcNumHBA(mol))
+    num_hbd = float(rdMolDescriptors.CalcNumHBD(mol))
+    try:
+        qed = float(QED.qed(mol))
+    except Exception:
+        qed = 0.0
+    try:
+        bertz_ct = float(Descriptors.BertzCT(mol))
+    except Exception:
+        bertz_ct = 0.0
+    energetic_fragment_count = float(
+        num_nitro
+        + num_furazan
+        + num_furoxan
+        + num_tetrazole
+        + num_triazole
+        + num_nitramine
+        + num_nitrate_ester
+        + num_azide
+        + num_nitroso
+        + num_n_oxide
+    )
+    ring_complexity = float(
+        num_rings
+        + aromatic_rings
+        + heteroaromatic_rings
+        + aliphatic_rings
+        + bridgehead_atoms
+        + spiro_atoms
+    )
+    sa_complexity_proxy = float(
+        0.25 * heavy
+        + ring_complexity
+        + 0.5 * rot_bonds
+        + energetic_fragment_count
+        + 0.01 * bertz_ct
     )
 
     vals = [
@@ -908,6 +1053,31 @@ def extract_2d_features(smiles: str) -> List[float]:
         n_o_ratio,
         explosophore_count,
         trigger_linkage_count,
+
+        float(c),
+        float(h),
+        float(num_o),
+        float(heavy),
+        carbon_fraction,
+        oxygen_fraction,
+        hetero_fraction,
+        hydrogen_nitrogen_ratio,
+        tpsa,
+        labute_asa,
+        rot_bonds,
+        aliphatic_rings,
+        saturated_rings,
+        bridgehead_atoms,
+        spiro_atoms,
+        fraction_csp3,
+        num_hba,
+        num_hbd,
+        qed,
+        bertz_ct,
+        num_furoxan,
+        energetic_fragment_count,
+        ring_complexity,
+        sa_complexity_proxy,
     ]
 
     if len(vals) != len(TWO_D_FEATURE_NAMES):
@@ -1221,7 +1391,6 @@ def compute_multitask_huber_loss(pred: torch.Tensor, target: torch.Tensor, mode:
             "Sigma2_tot": 1.5,
             "Nu": 1.5,
             "Trigger_Bond_Rho": 1.6,
-            "Molecular_Weight": 0.2,
             "Vertical_BDE(kcal/mol)": 1.4,
         }
         weights = torch.tensor([weight_by_target.get(t, 1.0) for t in TARGET_PROPS], dtype=pred.dtype, device=pred.device)
@@ -1235,7 +1404,6 @@ def compute_multitask_huber_loss(pred: torch.Tensor, target: torch.Tensor, mode:
             "Sigma2_tot": 1.4,
             "Nu": 1.4,
             "Trigger_Bond_Rho": 1.5,
-            "Molecular_Weight": 0.05,
             "Vertical_BDE(kcal/mol)": 1.2,
         }
         weights = torch.tensor([weight_by_target.get(t, 1.0) for t in TARGET_PROPS], dtype=pred.dtype, device=pred.device)
@@ -1423,6 +1591,104 @@ def load_optional_bde_feature_table(
     return row_map, feature_names
 
 
+def _is_true_phys_direct_leakage_feature(name: str) -> bool:
+    return name in TRUE_PHYS_DIRECT_LEAKAGE_FEATURES
+
+
+def true_phys_target_feature_mask(
+    feature_names: Sequence[str],
+    target: str,
+) -> Tuple[np.ndarray, List[str]]:
+    blocked = TRUE_PHYS_TARGET_LEAKAGE_FEATURES.get(target, set())
+    if not blocked:
+        return np.ones(len(feature_names), dtype=bool), []
+    mask = np.ones(len(feature_names), dtype=bool)
+    masked_names: List[str] = []
+    for i, name in enumerate(feature_names):
+        if name in blocked:
+            mask[i] = False
+            masked_names.append(name)
+    return mask, masked_names
+
+
+def load_optional_true_phys_feature_table(
+    true_phys_feature_path: Optional[str],
+    enabled: bool,
+) -> Tuple[Dict[int, np.ndarray], Dict[int, np.ndarray], List[str], List[str]]:
+    """Load real surface-ESP/QTAIM descriptors keyed by aligned row_index.
+
+    Teacher models receive all true-phys columns, but direct target-equivalent
+    columns are masked per target during fitting. The shared EGNN residual
+    branch receives a conservative true-phys subset with direct equivalents
+    removed globally, because that branch predicts all targets at once.
+    """
+    if not enabled:
+        return {}, {}, [], []
+    if not true_phys_feature_path:
+        print("[WARN] --enable_true_phys_features was set, but no --true_phys_feature_path was supplied.")
+        return {}, {}, [], []
+
+    path = Path(true_phys_feature_path)
+    if not path.exists():
+        print(f"[WARN] True-phys feature table not found: {path}. Continuing without true-phys features.")
+        return {}, {}, [], []
+
+    phys = pd.read_csv(path)
+    if "row_index" not in phys.columns:
+        phys["row_index"] = np.arange(len(phys), dtype=int)
+        print(f"[INFO] True-phys table lacks row_index; using CSV row order from {path}.")
+
+    for status_col, out_col in [
+        ("extract_status", "truephys_extract_ok"),
+        ("esp_status", "truephys_esp_ok"),
+        ("qtaim_status", "truephys_qtaim_ok"),
+    ]:
+        if status_col in phys.columns:
+            phys[out_col] = phys[status_col].astype(str).str.lower().eq("ok").astype(float)
+        else:
+            phys[out_col] = np.nan
+    phys["truephys_partial"] = 1.0 - np.nan_to_num(phys["truephys_extract_ok"].astype(float).values, nan=0.0)
+
+    numeric_cols: List[str] = []
+    for c in phys.columns:
+        if not str(c).startswith("phys_"):
+            continue
+        phys[c] = pd.to_numeric(phys[c], errors="coerce")
+        if pd.api.types.is_numeric_dtype(phys[c]) and phys[c].notna().any():
+            numeric_cols.append(c)
+
+    teacher_feature_names = list(TRUE_PHYS_STATUS_FEATURE_NAMES) + numeric_cols
+    residual_numeric_cols = [c for c in numeric_cols if not _is_true_phys_direct_leakage_feature(c)]
+    residual_feature_names = list(TRUE_PHYS_STATUS_FEATURE_NAMES) + residual_numeric_cols
+
+    teacher_map: Dict[int, np.ndarray] = {}
+    residual_map: Dict[int, np.ndarray] = {}
+    for _, row in phys.iterrows():
+        try:
+            row_index = int(row["row_index"])
+        except Exception:
+            continue
+        teacher_vals = [float(row.get(c, np.nan)) for c in TRUE_PHYS_STATUS_FEATURE_NAMES]
+        teacher_vals.extend(float(row.get(c, np.nan)) for c in numeric_cols)
+        residual_vals = [float(row.get(c, np.nan)) for c in TRUE_PHYS_STATUS_FEATURE_NAMES]
+        residual_vals.extend(float(row.get(c, np.nan)) for c in residual_numeric_cols)
+        teacher_map[row_index] = np.asarray(teacher_vals, dtype=np.float32)
+        residual_map[row_index] = np.asarray(residual_vals, dtype=np.float32)
+
+    if not teacher_map:
+        print(f"[WARN] True-phys table produced no matched row_index records: {path}.")
+        return {}, {}, [], []
+
+    status_counts = phys.get("extract_status", pd.Series(["unknown"] * len(phys))).astype(str).value_counts(dropna=False).to_dict()
+    print(
+        f"[INFO] True-phys feature hook enabled: {len(teacher_map)} row-index records, "
+        f"{len(teacher_feature_names)} teacher features, {len(residual_feature_names)} residual features from {path}."
+    )
+    print(f"[INFO] True-phys direct leakage columns excluded from residual branch: {len(teacher_feature_names) - len(residual_feature_names)}")
+    print(f"[INFO] True-phys extraction status counts: {status_counts}")
+    return teacher_map, residual_map, teacher_feature_names, residual_feature_names
+
+
 def engineer_xtb_features(row: pd.Series) -> Tuple[np.ndarray, List[str]]:
     """Small physically motivated interaction features for hard electronic/ESP/QTAIM targets."""
     gap = _safe_get(row, "xtb_gap_eV")
@@ -1479,38 +1745,357 @@ def engineer_xtb_features(row: pd.Series) -> Tuple[np.ndarray, List[str]]:
     return vals, names
 
 
+def engineer_surface_esp_intermediates(row: pd.Series) -> Tuple[np.ndarray, List[str]]:
+    """Surface-ESP proxy features derived from xTB charge and frontier descriptors.
+
+    These are intermediate descriptors for VS_max, Sigma2_tot, and Nu. They do
+    not read final-scale ESP labels; they summarize the semiempirical charge
+    distribution, polarity, and element-resolved charge extremes.
+    """
+    atoms = max(_safe_get(row, "xtb_n_atoms"), 1.0)
+    gap = _safe_get(row, "xtb_gap_eV")
+    dipole = _safe_get(row, "xtb_dipole_D")
+    ch_mean = _safe_get(row, "xtb_charge_mean")
+    ch_std = _safe_get(row, "xtb_charge_std")
+    ch_min = _safe_get(row, "xtb_charge_min")
+    ch_max = _safe_get(row, "xtb_charge_max")
+    ch_absmean = _safe_get(row, "xtb_charge_absmean")
+    ch_absmax = _safe_get(row, "xtb_charge_absmax")
+    pos_sum = _safe_get(row, "xtb_charge_positive_sum")
+    neg_sum = abs(_safe_get(row, "xtb_charge_negative_sum"))
+    total_sep = pos_sum + neg_sum
+    eps = 1e-8
+
+    def elem(el: str, stat: str) -> float:
+        return _safe_get(row, f"xtb_charge_{el}_{stat}")
+
+    c_count = max(elem("C", "count"), 0.0)
+    h_count = max(elem("H", "count"), 0.0)
+    n_count = max(elem("N", "count"), 0.0)
+    o_count = max(elem("O", "count"), 0.0)
+    f_count = max(elem("F", "count"), 0.0)
+    cl_count = max(elem("Cl", "count"), 0.0)
+    hetero_count = n_count + o_count + f_count + cl_count
+    area_proxy = max(float(atoms) ** (2.0 / 3.0), 1.0)
+
+    n_abs = elem("N", "absmax")
+    o_abs = elem("O", "absmax")
+    c_abs = elem("C", "absmax")
+    h_abs = elem("H", "absmax")
+    n_mean = elem("N", "mean")
+    o_mean = elem("O", "mean")
+    c_mean = elem("C", "mean")
+    h_mean = elem("H", "mean")
+    n_min = elem("N", "min")
+    o_min = elem("O", "min")
+    n_max = elem("N", "max")
+    o_max = elem("O", "max")
+
+    positive_negative_balance = (pos_sum - neg_sum) / (total_sep + eps)
+    sigma2_proxy = (ch_std ** 2 + ch_absmean ** 2 + 0.25 * ch_absmax ** 2)
+    vs_proxy = ch_absmax * (1.0 + dipole / (atoms + eps))
+    nu_proxy = abs(positive_negative_balance) * (1.0 + hetero_count / atoms)
+    charge_anisotropy = (ch_max - ch_min) / (ch_absmean + eps)
+    hetero_surface_polarity = (n_abs + o_abs + f_count + cl_count) / (hetero_count + 1.0)
+    no_charge_contrast = (n_abs - o_abs)
+    no_mean_contrast = (n_mean - o_mean)
+    donor_acceptor_span = max(n_max, o_max, ch_max) - min(n_min, o_min, ch_min)
+
+    vals = np.array(
+        [
+            ch_min,
+            ch_max,
+            ch_std,
+            ch_absmean,
+            ch_absmax,
+            ch_max - ch_min,
+            total_sep,
+            total_sep / atoms,
+            total_sep / area_proxy,
+            positive_negative_balance,
+            sigma2_proxy,
+            sigma2_proxy / area_proxy,
+            sigma2_proxy * max(dipole, 0.0),
+            vs_proxy,
+            vs_proxy / (gap + 1.0),
+            nu_proxy,
+            charge_anisotropy,
+            hetero_surface_polarity,
+            no_charge_contrast,
+            no_mean_contrast,
+            donor_acceptor_span,
+            dipole / atoms,
+            dipole / area_proxy,
+            ch_absmax / (gap + 1.0),
+            ch_std / (gap + 1.0),
+            n_count / atoms,
+            o_count / atoms,
+            hetero_count / atoms,
+            n_abs - ch_absmax,
+            o_abs - ch_absmax,
+            c_abs - h_abs,
+            n_mean - ch_mean,
+            o_mean - ch_mean,
+            c_mean - ch_mean,
+            h_mean - ch_mean,
+        ],
+        dtype=np.float32,
+    )
+    names = [
+        "surface_esp_charge_min",
+        "surface_esp_charge_max",
+        "surface_esp_charge_std",
+        "surface_esp_charge_absmean",
+        "surface_esp_charge_absmax",
+        "surface_esp_charge_range",
+        "surface_esp_charge_separation",
+        "surface_esp_charge_separation_per_atom",
+        "surface_esp_charge_separation_per_area_proxy",
+        "surface_esp_positive_negative_balance",
+        "surface_esp_sigma2_proxy",
+        "surface_esp_sigma2_per_area_proxy",
+        "surface_esp_sigma2_x_dipole",
+        "surface_esp_vs_proxy",
+        "surface_esp_vs_div_gap_plus1",
+        "surface_esp_nu_proxy",
+        "surface_esp_charge_anisotropy",
+        "surface_esp_hetero_surface_polarity",
+        "surface_esp_N_minus_O_absmax",
+        "surface_esp_N_minus_O_mean",
+        "surface_esp_donor_acceptor_span",
+        "surface_esp_dipole_per_atom",
+        "surface_esp_dipole_per_area_proxy",
+        "surface_esp_absmax_div_gap_plus1",
+        "surface_esp_std_div_gap_plus1",
+        "surface_esp_N_fraction",
+        "surface_esp_O_fraction",
+        "surface_esp_hetero_fraction",
+        "surface_esp_N_absmax_centered_to_global",
+        "surface_esp_O_absmax_centered_to_global",
+        "surface_esp_C_minus_H_absmax",
+        "surface_esp_N_mean_centered",
+        "surface_esp_O_mean_centered",
+        "surface_esp_C_mean_centered",
+        "surface_esp_H_mean_centered",
+    ]
+    return vals, names
+
+
+def engineer_trigger_qtaim_intermediates(row: pd.Series) -> Tuple[np.ndarray, List[str]]:
+    """Trigger-bond-local QTAIM proxy features from xTB WBO and charge blocks.
+
+    These features target Trigger_Bond_Rho without using the rhoBCP label. They
+    describe weak-bond order, C/N/O pair context, and local charge-WBO products
+    that approximate the electronic environment around likely trigger bonds.
+    """
+    gap = _safe_get(row, "xtb_gap_eV")
+    ch_std = _safe_get(row, "xtb_charge_std")
+    ch_abs = _safe_get(row, "xtb_charge_absmax")
+    wbo_n = max(_safe_get(row, "xtb_wbo_n"), 1.0)
+    wbo_min = _safe_get(row, "xtb_wbo_min")
+    wbo_mean = _safe_get(row, "xtb_wbo_mean")
+    wbo_std = _safe_get(row, "xtb_wbo_std")
+    wbo_p05 = _safe_get(row, "xtb_wbo_p05")
+    wbo_p50 = _safe_get(row, "xtb_wbo_p50")
+    wbo_p95 = _safe_get(row, "xtb_wbo_p95")
+    weak_lt08 = _safe_get(row, "xtb_wbo_count_lt_0p8")
+    weak_lt10 = _safe_get(row, "xtb_wbo_count_lt_1p0")
+    trig_n = max(_safe_get(row, "xtb_trigger_wbo_proxy_n"), 0.0)
+    trig_min = _safe_get(row, "xtb_trigger_wbo_proxy_min")
+    trig_mean = _safe_get(row, "xtb_trigger_wbo_proxy_mean")
+    trig_p05 = _safe_get(row, "xtb_trigger_wbo_proxy_p05")
+    eps = 1e-8
+
+    def wbo_pair(pair: str, stat: str) -> float:
+        return _safe_get(row, f"xtb_wbo_{pair}_{stat}")
+
+    cn_count = wbo_pair("C_N", "count")
+    nn_count = wbo_pair("N_N", "count")
+    no_count = wbo_pair("N_O", "count")
+    oo_count = wbo_pair("O_O", "count")
+    co_count = wbo_pair("C_O", "count")
+    trigger_pair_count = cn_count + nn_count + no_count
+    trigger_pair_frac = trigger_pair_count / (wbo_n + eps)
+
+    cn_min = wbo_pair("C_N", "min")
+    nn_min = wbo_pair("N_N", "min")
+    no_min = wbo_pair("N_O", "min")
+    cn_mean = wbo_pair("C_N", "mean")
+    nn_mean = wbo_pair("N_N", "mean")
+    no_mean = wbo_pair("N_O", "mean")
+    trigger_pair_min = min([v for v in [cn_min, nn_min, no_min] if np.isfinite(v)] or [0.0])
+    trigger_pair_mean = (cn_mean * cn_count + nn_mean * nn_count + no_mean * no_count) / (trigger_pair_count + eps)
+
+    n_abs = _safe_get(row, "xtb_charge_N_absmax")
+    o_abs = _safe_get(row, "xtb_charge_O_absmax")
+    c_abs = _safe_get(row, "xtb_charge_C_absmax")
+    n_mean = _safe_get(row, "xtb_charge_N_mean")
+    o_mean = _safe_get(row, "xtb_charge_O_mean")
+    n_min = _safe_get(row, "xtb_charge_N_min")
+    o_min = _safe_get(row, "xtb_charge_O_min")
+    n_max = _safe_get(row, "xtb_charge_N_max")
+    o_max = _safe_get(row, "xtb_charge_O_max")
+
+    qtaim_rho_proxy = max(0.0, trigger_pair_mean) * (1.0 + ch_abs) / (gap + 1.0)
+    qtaim_deloc_proxy = (wbo_p95 - wbo_p05) * trigger_pair_frac
+    qtaim_depletion_proxy = (weak_lt10 / (wbo_n + eps)) * (1.0 + ch_std)
+    no_polarity = abs(n_mean - o_mean) + abs(n_abs - o_abs)
+    trigger_charge_wbo = trig_min * (n_abs + o_abs + c_abs)
+
+    vals = np.array(
+        [
+            wbo_min,
+            wbo_mean,
+            wbo_std,
+            wbo_p05,
+            wbo_p50,
+            wbo_p95,
+            wbo_p95 - wbo_p05,
+            weak_lt08 / (wbo_n + eps),
+            weak_lt10 / (wbo_n + eps),
+            trig_n,
+            trig_min,
+            trig_mean,
+            trig_p05,
+            trig_min - wbo_min,
+            trig_mean - wbo_mean,
+            trig_p05 - wbo_p05,
+            cn_count / (wbo_n + eps),
+            nn_count / (wbo_n + eps),
+            no_count / (wbo_n + eps),
+            oo_count / (wbo_n + eps),
+            co_count / (wbo_n + eps),
+            trigger_pair_frac,
+            trigger_pair_min,
+            trigger_pair_mean,
+            trigger_pair_mean - wbo_mean,
+            n_abs,
+            o_abs,
+            c_abs,
+            n_mean,
+            o_mean,
+            n_min,
+            o_min,
+            n_max,
+            o_max,
+            no_polarity,
+            qtaim_rho_proxy,
+            qtaim_deloc_proxy,
+            qtaim_depletion_proxy,
+            trigger_charge_wbo,
+            trigger_charge_wbo / (gap + 1.0),
+            (cn_min - nn_min),
+            (no_min - cn_min),
+            (no_mean - cn_mean),
+            (nn_mean - cn_mean),
+        ],
+        dtype=np.float32,
+    )
+    names = [
+        "trigger_qtaim_wbo_min",
+        "trigger_qtaim_wbo_mean",
+        "trigger_qtaim_wbo_std",
+        "trigger_qtaim_wbo_p05",
+        "trigger_qtaim_wbo_p50",
+        "trigger_qtaim_wbo_p95",
+        "trigger_qtaim_wbo_iqr_proxy",
+        "trigger_qtaim_weak_lt_0p8_frac",
+        "trigger_qtaim_weak_lt_1p0_frac",
+        "trigger_qtaim_proxy_n",
+        "trigger_qtaim_proxy_min",
+        "trigger_qtaim_proxy_mean",
+        "trigger_qtaim_proxy_p05",
+        "trigger_qtaim_proxy_min_minus_global_min",
+        "trigger_qtaim_proxy_mean_minus_global_mean",
+        "trigger_qtaim_proxy_p05_minus_global_p05",
+        "trigger_qtaim_CN_frac",
+        "trigger_qtaim_NN_frac",
+        "trigger_qtaim_NO_frac",
+        "trigger_qtaim_OO_frac",
+        "trigger_qtaim_CO_frac",
+        "trigger_qtaim_CN_NN_NO_frac",
+        "trigger_qtaim_pair_min",
+        "trigger_qtaim_pair_mean",
+        "trigger_qtaim_pair_mean_minus_global_mean",
+        "trigger_qtaim_N_absmax",
+        "trigger_qtaim_O_absmax",
+        "trigger_qtaim_C_absmax",
+        "trigger_qtaim_N_mean",
+        "trigger_qtaim_O_mean",
+        "trigger_qtaim_N_min",
+        "trigger_qtaim_O_min",
+        "trigger_qtaim_N_max",
+        "trigger_qtaim_O_max",
+        "trigger_qtaim_NO_polarity",
+        "trigger_qtaim_rho_proxy",
+        "trigger_qtaim_delocalization_proxy",
+        "trigger_qtaim_depletion_proxy",
+        "trigger_qtaim_charge_wbo",
+        "trigger_qtaim_charge_wbo_div_gap_plus1",
+        "trigger_qtaim_CN_minus_NN_min",
+        "trigger_qtaim_NO_minus_CN_min",
+        "trigger_qtaim_NO_minus_CN_mean",
+        "trigger_qtaim_NN_minus_CN_mean",
+    ]
+    return vals, names
+
+
 def build_final_feature_matrices(
     raw_examples: List[RawExample],
     xtb_feature_path: str,
     fp_size: int = 2048,
     bde_feature_path: Optional[str] = None,
     enable_bde_features: bool = False,
+    true_phys_feature_path: Optional[str] = None,
+    enable_true_phys_features: bool = False,
 ) -> Tuple[np.ndarray, np.ndarray, Dict[int, np.ndarray], List[RawExample], List[str], List[str]]:
     xtb, numeric_cols = load_xtb_feature_table(xtb_feature_path)
     bde_row_to_features, bde_feature_names = load_optional_bde_feature_table(
         bde_feature_path=bde_feature_path,
         enabled=enable_bde_features,
     )
+    true_teacher_map, true_residual_map, true_teacher_names, true_residual_names = load_optional_true_phys_feature_table(
+        true_phys_feature_path=true_phys_feature_path,
+        enabled=enable_true_phys_features,
+    )
 
     row_to_xtb: Dict[int, np.ndarray] = {}
+    row_to_teacher_extra: Dict[int, np.ndarray] = {}
     engineered_names: Optional[List[str]] = None
     missing_bde_count = 0
+    missing_true_phys_count = 0
 
     for _, row in xtb.iterrows():
         row_index = int(row["row_index"])
         base = row[numeric_cols].astype(float).values.astype(np.float32)
         eng, names = engineer_xtb_features(row)
+        surface_esp, surface_names = engineer_surface_esp_intermediates(row)
+        trigger_qtaim, trigger_names = engineer_trigger_qtaim_intermediates(row)
         if engineered_names is None:
-            engineered_names = names
+            engineered_names = names + surface_names + trigger_names
 
-        parts = [base, eng]
+        common_parts = [base, eng, surface_esp, trigger_qtaim]
+        teacher_parts = list(common_parts)
+        residual_parts = list(common_parts)
         if bde_feature_names:
             bde_vec = bde_row_to_features.get(row_index)
             if bde_vec is None:
                 missing_bde_count += 1
                 bde_vec = np.full((len(bde_feature_names),), np.nan, dtype=np.float32)
-            parts.append(bde_vec.astype(np.float32))
-        row_to_xtb[row_index] = np.concatenate(parts, axis=0).astype(np.float32)
+            bde_vec = bde_vec.astype(np.float32)
+            teacher_parts.append(bde_vec)
+            residual_parts.append(bde_vec)
+        if true_teacher_names:
+            teacher_true = true_teacher_map.get(row_index)
+            residual_true = true_residual_map.get(row_index)
+            if teacher_true is None or residual_true is None:
+                missing_true_phys_count += 1
+                teacher_true = np.full((len(true_teacher_names),), np.nan, dtype=np.float32)
+                residual_true = np.full((len(true_residual_names),), np.nan, dtype=np.float32)
+            teacher_parts.append(teacher_true.astype(np.float32))
+            residual_parts.append(residual_true.astype(np.float32))
+        row_to_teacher_extra[row_index] = np.concatenate(teacher_parts, axis=0).astype(np.float32)
+        row_to_xtb[row_index] = np.concatenate(residual_parts, axis=0).astype(np.float32)
 
     if engineered_names is None:
         engineered_names = []
@@ -1524,18 +2109,36 @@ def build_final_feature_matrices(
     for ex in aligned:
         fp = morgan_fp(ex.smiles, fp_size=fp_size)
         compact = ex.x2d_raw.detach().cpu().numpy().astype(np.float32)
-        xtb_vec = row_to_xtb[int(ex.row_index)].astype(np.float32)
-        X_teacher.append(np.concatenate([fp, compact, xtb_vec], axis=0))
-        X_xtb.append(xtb_vec)
+        teacher_extra = row_to_teacher_extra[int(ex.row_index)].astype(np.float32)
+        residual_vec = row_to_xtb[int(ex.row_index)].astype(np.float32)
+        X_teacher.append(np.concatenate([fp, compact, teacher_extra], axis=0))
+        X_xtb.append(residual_vec)
 
     if bde_feature_names and missing_bde_count:
         print(
             f"[INFO] Optional BDE features missing for {missing_bde_count}/{len(xtb)} xTB rows; "
             "training-core medians will impute these values."
         )
+    if true_teacher_names and missing_true_phys_count:
+        print(
+            f"[INFO] True-phys features missing for {missing_true_phys_count}/{len(xtb)} xTB rows; "
+            "training-core medians and status flags will handle these values."
+        )
+    print(
+        "[INFO] Feature-branch robustness descriptors enabled: "
+        f"{len(surface_names)} surface-ESP intermediates + {len(trigger_names)} trigger-QTAIM intermediates; "
+        "Molecular_Weight is excluded from TARGET_PROPS."
+    )
+    if true_teacher_names:
+        print(
+            "[INFO] True-phys branch enabled: "
+            f"{len(true_teacher_names)} teacher true-phys features + {len(true_residual_names)} residual true-phys features "
+            "after direct-leakage screening."
+        )
 
-    teacher_feature_names = [f"morgan_{i}" for i in range(fp_size)] + list(TWO_D_FEATURE_NAMES) + numeric_cols + engineered_names + bde_feature_names
-    xtb_feature_names = numeric_cols + engineered_names + bde_feature_names
+    base_extra_names = numeric_cols + engineered_names + bde_feature_names
+    teacher_feature_names = [f"morgan_{i}" for i in range(fp_size)] + list(TWO_D_FEATURE_NAMES) + base_extra_names + true_teacher_names
+    xtb_feature_names = base_extra_names + true_residual_names
     return (
         np.vstack(X_teacher).astype(np.float32),
         np.vstack(X_xtb).astype(np.float32),
@@ -1589,10 +2192,10 @@ def target_transform(name: str):
 # ==============================================================================
 def make_teacher_zoo(seed: int, n_jobs: int, include_mlp: bool = False) -> List[Tuple[str, Any]]:
     from sklearn.ensemble import ExtraTreesRegressor, HistGradientBoostingRegressor, RandomForestRegressor
-    from sklearn.linear_model import Ridge
+    from sklearn.linear_model import ElasticNet, HuberRegressor, Ridge
     from sklearn.neural_network import MLPRegressor
     from sklearn.pipeline import Pipeline
-    from sklearn.preprocessing import StandardScaler
+    from sklearn.preprocessing import RobustScaler, StandardScaler
 
     zoo: List[Tuple[str, Any]] = []
     try:
@@ -1609,6 +2212,25 @@ def make_teacher_zoo(seed: int, n_jobs: int, include_mlp: bool = False) -> List[
                     colsample_bytree=0.80,
                     reg_lambda=4.0,
                     reg_alpha=0.0,
+                    objective="reg:squarederror",
+                    random_state=seed,
+                    n_jobs=n_jobs,
+                    tree_method="hist",
+                ),
+            )
+        )
+        zoo.append(
+            (
+                "XGBoostShallow",
+                XGBRegressor(
+                    n_estimators=600,
+                    max_depth=2,
+                    learning_rate=0.025,
+                    subsample=0.95,
+                    colsample_bytree=0.90,
+                    min_child_weight=5.0,
+                    reg_lambda=12.0,
+                    reg_alpha=0.05,
                     objective="reg:squarederror",
                     random_state=seed,
                     n_jobs=n_jobs,
@@ -1651,8 +2273,35 @@ def make_teacher_zoo(seed: int, n_jobs: int, include_mlp: bool = False) -> List[
                 ),
             ),
             (
+                "HistGBRRegularized",
+                HistGradientBoostingRegressor(
+                    max_iter=700,
+                    learning_rate=0.02,
+                    max_leaf_nodes=15,
+                    l2_regularization=0.05,
+                    random_state=seed,
+                ),
+            ),
+            (
                 "Ridge",
                 Pipeline([("scaler", StandardScaler()), ("ridge", Ridge(alpha=3.0))]),
+            ),
+            (
+                "RidgeRobust",
+                Pipeline([("scaler", RobustScaler()), ("ridge", Ridge(alpha=15.0))]),
+            ),
+            (
+                "ElasticNet",
+                Pipeline(
+                    [
+                        ("scaler", RobustScaler()),
+                        ("elastic", ElasticNet(alpha=0.02, l1_ratio=0.15, max_iter=10000, random_state=seed)),
+                    ]
+                ),
+            ),
+            (
+                "Huber",
+                Pipeline([("scaler", RobustScaler()), ("huber", HuberRegressor(alpha=1e-3, max_iter=1000))]),
             ),
         ]
     )
@@ -1701,6 +2350,8 @@ class TargetTeacherBundle:
     target: str
     transform_name: str
     selected_names: List[str]
+    feature_mask_indices: List[int]
+    masked_feature_names: List[str]
     base_models: List[Any]
     meta_model: Optional[Any]
     oof_r2: float
@@ -1711,8 +2362,10 @@ def fit_targetwise_teacher_ensemble(
     X_core: np.ndarray,
     y_core: np.ndarray,
     X_calib: np.ndarray,
+    y_calib: Optional[np.ndarray],
     X_val: np.ndarray,
     args: argparse.Namespace,
+    feature_names: Optional[Sequence[str]] = None,
 ) -> Tuple[List[TargetTeacherBundle], np.ndarray, np.ndarray, np.ndarray, pd.DataFrame]:
     """Production-clean final_specialist v2 teacher selection.
 
@@ -1739,6 +2392,21 @@ def fit_targetwise_teacher_ensemble(
     print("=" * 78)
 
     for j, target in enumerate(TARGET_PROPS):
+        if feature_names is not None:
+            feature_mask, masked_feature_names = true_phys_target_feature_mask(feature_names, target)
+        else:
+            feature_mask = np.ones(X_core.shape[1], dtype=bool)
+            masked_feature_names = []
+        feature_mask_indices = np.where(feature_mask)[0].astype(int).tolist()
+        X_core_t = X_core[:, feature_mask]
+        X_calib_t = X_calib[:, feature_mask]
+        X_val_t = X_val[:, feature_mask]
+        if masked_feature_names:
+            print(
+                f"[NO_LEAK_MASK] {target}: masked {len(masked_feature_names)} direct true-phys feature(s): "
+                + ", ".join(masked_feature_names)
+            )
+
         fwd, inv, trans_name = target_transform(target)
         y_raw = y_core[:, j].astype(np.float32)
         y_t = fwd(y_raw).astype(np.float32)
@@ -1752,7 +2420,7 @@ def fit_targetwise_teacher_ensemble(
             try:
                 oof = fit_predict_oof(
                     proto,
-                    X_core,
+                    X_core_t,
                     y_t,
                     inv,
                     folds=args.teacher_cv_folds,
@@ -1769,6 +2437,7 @@ def fit_targetwise_teacher_ensemble(
                         "Candidate_Model": name,
                         "Transform": trans_name,
                         "OOF_R2": score,
+                        "Masked_TruePhys_Feature_Count": len(masked_feature_names),
                     }
                 )
             except Exception as e:
@@ -1780,6 +2449,12 @@ def fit_targetwise_teacher_ensemble(
         order = np.argsort(candidate_scores)[::-1]
         top_k = min(args.teacher_top_k, len(order))
         selected_idx = list(order[:top_k])
+        forced_names: set[str] = set()
+        if getattr(args, "force_hgs_robust_teachers", False) and target in ROBUSTNESS_TARGETS:
+            forced_names = ROBUSTNESS_TEACHER_MODELS.get(target, set())
+            for idx, name in enumerate(candidate_names):
+                if name in forced_names and idx not in selected_idx:
+                    selected_idx.append(idx)
 
         stack_oof = np.column_stack([candidate_oof[k] for k in selected_idx]).astype(np.float32)
         best_single_idx = int(order[0])
@@ -1803,7 +2478,11 @@ def fit_targetwise_teacher_ensemble(
             except Exception as e:
                 print(f"[WARN] {target} stacking failed, using best single teacher: {e}")
 
-        if meta_model is None:
+        if meta_model is None and not (
+            target in ROBUSTNESS_TARGETS
+            and forced_names
+            and getattr(args, "hgs_robust_blend_max", 0.0) > 0.0
+        ):
             selected_idx = [best_single_idx]
 
         base_models: List[Any] = []
@@ -1812,10 +2491,10 @@ def fit_targetwise_teacher_ensemble(
 
         for k in selected_idx:
             model = clone(candidate_protos[k])
-            model.fit(X_core, y_t)
+            model.fit(X_core_t, y_t)
             base_models.append(model)
-            calib_base_preds.append(inv(model.predict(X_calib)).astype(np.float32))
-            val_base_preds.append(inv(model.predict(X_val)).astype(np.float32))
+            calib_base_preds.append(inv(model.predict(X_calib_t)).astype(np.float32))
+            val_base_preds.append(inv(model.predict(X_val_t)).astype(np.float32))
 
         calib_stack = np.column_stack(calib_base_preds).astype(np.float32)
         val_stack = np.column_stack(val_base_preds).astype(np.float32)
@@ -1826,6 +2505,41 @@ def fit_targetwise_teacher_ensemble(
         else:
             pc = meta_model.predict(calib_stack).astype(np.float32)
             pv = meta_model.predict(val_stack).astype(np.float32)
+
+        blend_weight = 0.0
+        robust_rel = [
+            rel_i
+            for rel_i, candidate_i in enumerate(selected_idx)
+            if candidate_names[candidate_i] in forced_names
+        ]
+        if (
+            target in ROBUSTNESS_TARGETS
+            and robust_rel
+            and getattr(args, "hgs_robust_blend_max", 0.0) > 0.0
+            and y_calib is not None
+            and len(y_calib) == len(pc)
+        ):
+            robust_pc = calib_stack[:, robust_rel].mean(axis=1).astype(np.float32)
+            robust_pv = val_stack[:, robust_rel].mean(axis=1).astype(np.float32)
+            robust_oof = np.column_stack([candidate_oof[selected_idx[r]] for r in robust_rel]).mean(axis=1).astype(np.float32)
+            base_rmse = rmse_np(y_calib[:, j], pc)
+            best_rmse = base_rmse
+            best_w = 0.0
+            max_w = float(getattr(args, "hgs_robust_blend_max", 0.0))
+            step_w = max(float(getattr(args, "hgs_robust_blend_step", 0.05)), 1e-6)
+            for w in np.arange(0.0, max_w + 0.5 * step_w, step_w):
+                candidate_pc = ((1.0 - w) * pc + w * robust_pc).astype(np.float32)
+                candidate_rmse = rmse_np(y_calib[:, j], candidate_pc)
+                if candidate_rmse < best_rmse:
+                    best_rmse = candidate_rmse
+                    best_w = float(w)
+            min_improvement = float(getattr(args, "hgs_robust_blend_min_improvement", 0.0))
+            if base_rmse > 0 and (base_rmse - best_rmse) / base_rmse >= min_improvement:
+                blend_weight = best_w
+                pc = ((1.0 - blend_weight) * pc + blend_weight * robust_pc).astype(np.float32)
+                pv = ((1.0 - blend_weight) * pv + blend_weight * robust_pv).astype(np.float32)
+                ensemble_oof = ((1.0 - blend_weight) * ensemble_oof + blend_weight * robust_oof).astype(np.float32)
+                ensemble_r2 = r2_score_np(y_raw, ensemble_oof)
 
         selected_names = [candidate_names[k] for k in selected_idx]
 
@@ -1838,6 +2552,8 @@ def fit_targetwise_teacher_ensemble(
                 target=target,
                 transform_name=trans_name,
                 selected_names=selected_names,
+                feature_mask_indices=feature_mask_indices,
+                masked_feature_names=masked_feature_names,
                 base_models=base_models,
                 meta_model=meta_model,
                 oof_r2=float(ensemble_r2),
@@ -1847,7 +2563,7 @@ def fit_targetwise_teacher_ensemble(
 
         print(
             f"{target:30s} | selected={'+'.join(selected_names):48s} | "
-            f"transform={trans_name:18s} | OOF_R2={ensemble_r2:.4f}"
+            f"transform={trans_name:18s} | OOF_R2={ensemble_r2:.4f} | HGS_blend={blend_weight:.2f}"
         )
 
     return bundles, oof_core, pred_calib, pred_val, pd.DataFrame(selection_rows)
@@ -2379,6 +3095,8 @@ def run_final_specialist_v2(args: argparse.Namespace, raw_examples: List[RawExam
         fp_size=args.fp_size,
         bde_feature_path=args.bde_feature_path,
         enable_bde_features=args.enable_bde_features,
+        true_phys_feature_path=args.true_phys_feature_path,
+        enable_true_phys_features=args.enable_true_phys_features,
     )
     y_all = torch.stack([ex.y_raw for ex in aligned_examples], dim=0).numpy().astype(np.float32)
 
@@ -2386,6 +3104,7 @@ def run_final_specialist_v2(args: argparse.Namespace, raw_examples: List[RawExam
     print(f"[INFO] Teacher feature dimension: {X_teacher_all.shape[1]}")
     print(f"[INFO] Residual xTB feature dimension: {X_xtb_all.shape[1]}")
     print(f"[INFO] xTB feature path: {args.xtb_feature_path}")
+    print(f"[INFO] True-phys features: {bool(args.enable_true_phys_features)} | path={args.true_phys_feature_path}")
 
 
     core_idx, calib_idx, val_idx = select_split_indices(len(aligned_examples), args.seed, args.val_fraction, args.specialist_calib_fraction)
@@ -2423,8 +3142,10 @@ def run_final_specialist_v2(args: argparse.Namespace, raw_examples: List[RawExam
         X_core,
         y_core,
         X_calib,
+        y_calib,
         X_val,
         args,
+        feature_names=teacher_feature_names,
     )
 
     teacher_metrics = metrics_table(
@@ -2642,6 +3363,11 @@ def run_final_specialist_v2(args: argparse.Namespace, raw_examples: List[RawExam
         "xtb_feature_path": args.xtb_feature_path,
         "bde_features_enabled": bool(args.enable_bde_features),
         "bde_feature_path": args.bde_feature_path if args.enable_bde_features else None,
+        "true_phys_features_enabled": bool(args.enable_true_phys_features),
+        "true_phys_feature_path": args.true_phys_feature_path if args.enable_true_phys_features else None,
+        "true_phys_target_masked_features": {
+            PRETTY_TARGETS.get(b.target, b.target): b.masked_feature_names for b in teacher_bundles
+        },
         "npj_evidence_paths": npj_evidence_paths,
     }
 
@@ -2669,6 +3395,11 @@ def run_final_specialist_v2(args: argparse.Namespace, raw_examples: List[RawExam
         "npj_evidence_paths": npj_evidence_paths,
         "bde_features_enabled": bool(args.enable_bde_features),
         "bde_feature_path": args.bde_feature_path if args.enable_bde_features else None,
+        "true_phys_features_enabled": bool(args.enable_true_phys_features),
+        "true_phys_feature_path": args.true_phys_feature_path if args.enable_true_phys_features else None,
+        "true_phys_target_masked_features": {
+            PRETTY_TARGETS.get(b.target, b.target): b.masked_feature_names for b in teacher_bundles
+        },
         "residual_policy": args.residual_policy,
         "density_label_note": "Density_calc(g/cm3) is molecular-volume-derived proxy density unless crystal density is explicitly supplied.",
     }
@@ -2714,7 +3445,7 @@ def load_training_dataframe() -> pd.DataFrame:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Train 10-target HELS Hybrid Native-EGNN models with vertical BDE labels.")
+    parser = argparse.ArgumentParser(description="Train 9-target HELS Hybrid Native-EGNN models with feature-branch ESP/QTAIM descriptors and vertical BDE labels.")
     parser.add_argument("--model_variant", choices=["2d_only", "3d_only", "final_specialist"], default="final_specialist")
     parser.add_argument("--epochs", type=int, default=120)
     parser.add_argument("--batch_size", type=int, default=64)
@@ -2743,6 +3474,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--teacher_cv_folds", type=int, default=5)
     parser.add_argument("--teacher_top_k", type=int, default=3)
     parser.add_argument("--include_mlp_teacher", action="store_true")
+    parser.add_argument("--disable_mlp_teacher", action="store_true")
+    parser.add_argument("--force_hgs_robust_teachers", action="store_true", help="Force robust HOF/Gap/SA teacher candidates into the target stack.")
+    parser.add_argument("--hgs_robust_blend_max", type=float, default=0.0, help="Maximum calibration-selected robust blend weight for HOF/Gap/SA.")
+    parser.add_argument("--hgs_robust_blend_step", type=float, default=0.05)
+    parser.add_argument("--hgs_robust_blend_min_improvement", type=float, default=0.0)
     parser.add_argument("--fp_size", type=int, default=2048)
     parser.add_argument("--alpha_max", type=float, default=0.75)
     parser.add_argument("--alpha_step", type=float, default=0.025)
@@ -2751,6 +3487,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--residual_min_corr", type=float, default=0.05)
     parser.add_argument("--enable_bde_features", action="store_true", help="Append optional weak-bond manifest descriptors to xTB features; completed BDE label values are excluded to prevent leakage.")
     parser.add_argument("--bde_feature_path", default="../data/curated_molecule_clean_v1/old_dataset_molecule_clean.csv")
+    parser.add_argument("--enable_true_phys_features", action="store_true", help="Append real surface-ESP/QTAIM descriptors with no-leakage screening.")
+    parser.add_argument("--true_phys_feature_path", default=None, help="CSV produced by true_phys_feature_extractor_20260624.py summarize.")
     parser.add_argument("--export_npj_evidence", dest="export_npj_evidence", action="store_true", default=True)
     parser.add_argument("--no_export_npj_evidence", dest="export_npj_evidence", action="store_false")
     parser.add_argument("--npj_evidence_dir", default="../manuscript_npJ/SI/model_diagnostics")
@@ -2784,6 +3522,7 @@ def main() -> None:
     print(f"[INFO] Model variant: {args.model_variant}")
     print(f"[INFO] Residual policy: {args.residual_policy} | residual_min_corr={args.residual_min_corr}")
     print(f"[INFO] Optional BDE features: {bool(args.enable_bde_features)} | path={args.bde_feature_path}")
+    print(f"[INFO] Optional true-phys features: {bool(args.enable_true_phys_features)} | path={args.true_phys_feature_path}")
     print(f"[INFO] Export npj evidence: {bool(args.export_npj_evidence)} | dir={args.npj_evidence_dir}")
 
     df_all = load_training_dataframe()

@@ -1,18 +1,18 @@
 # QH-HEGNN energetic-molecule screening workflow v1.0.2
 
-This cleaned package refreshes the manuscript code/data release after the final true-phys/HGS Fig. 4 evaluation and refined Fig. 1 update.
+This package refreshes the manuscript code/data release as a formal calculation and validation bundle.
 
 ## Changes relative to v1.0.1
 
-- Added the final true-phys/HGS scripts used for the Random, Scaffold and Butina Fig. 4 evaluation.
-- Added source data for the updated Fig. 1 and Fig. 4 panels.
+- Consolidated the final model-training implementation into the canonical `src/03_egnn_painn_train.py` entry point.
+- Added controlled Random, Scaffold and Butina validation split generation and execution helpers.
+- Added processed source-data tables and target-wise validation summaries for the final manuscript results.
 - Updated package metadata to `v1.0.2` with release date 2026-06-26.
-- Removed smoke-test wrappers, manuscript-writing scripts, reference-management scripts, historical workflow snapshots and superseded draft plotting scripts from the distributed release boundary.
-- Kept only final figure source scripts that are directly tied to manuscript figures.
+- Removed manuscript-writing scripts, reference-management scripts, smoke-test wrappers, historical workflow snapshots, draft plotting scripts and local automation artifacts from the distributed release boundary.
 
 ## Current release boundary
 
-- `src/`: manuscript-related computational, data-processing and final figure source scripts.
+- `src/`: manuscript-related computational, data-processing and validation scripts.
 - `data/processed/`: processed manuscript source/supplementary data needed to inspect the reported results.
 - `slurm_templates/`: HPC execution templates for expensive calculations.
 - `docs/paper1_code_package/`: environment notes, requirements and manifest.

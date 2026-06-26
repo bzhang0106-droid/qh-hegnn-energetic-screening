@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=qh_tp_hgs_std
+#SBATCH --job-name=qh_std_eval
 #SBATCH --partition=epyc,long
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -7,13 +7,13 @@
 #SBATCH --mem=96G
 #SBATCH --time=72:00:00
 #SBATCH --array=0-8%3
-#SBATCH --output=/scratch/gma/bzhang/codex_vsbde_qh_hegnn_controlled_eval_20260624/results/logs/qh_tp_hgs_std_%A_%a.out
-#SBATCH --error=/scratch/gma/bzhang/codex_vsbde_qh_hegnn_controlled_eval_20260624/results/logs/qh_tp_hgs_std_%A_%a.err
+#SBATCH --output=logs/qh_standard_validation_%A_%a.out
+#SBATCH --error=logs/qh_standard_validation_%A_%a.err
 
 set -euo pipefail
 
-WORK=/scratch/gma/bzhang/codex_vsbde_qh_hegnn_controlled_eval_20260624
-MANIFEST="${WORK}/splits/standard_3split_hgs_20260626/run_cases_standard_3split_hgs_20260626.tsv"
+WORK="${QH_HEGNN_WORK:-/scratch/gma/bzhang/qh_hegnn_standard_validation}"
+MANIFEST="${QH_HEGNN_SPLIT_MANIFEST:-${WORK}/splits/standard_validation/run_cases_standard_validation.tsv}"
 TASK_INDEX=$((SLURM_ARRAY_TASK_ID + 1))
 
 IFS=$'\t' read -r CASE_TAG SEED SPLIT_JSON < <(awk -v n="${TASK_INDEX}" 'NR==n {print $1"\t"$2"\t"$3}' "${MANIFEST}")
@@ -23,7 +23,7 @@ if [ -z "${CASE_TAG:-}" ] || [ -z "${SPLIT_JSON:-}" ]; then
 fi
 
 echo "=================================================="
-echo "Standard Random/Scaffold/Butina true-phys HGS eval"
+echo "Standard Random/Scaffold/Butina model validation"
 echo "Case: ${CASE_TAG}"
 echo "Seed: ${SEED}"
 echo "Split: ${SPLIT_JSON}"
@@ -35,7 +35,8 @@ echo "=================================================="
 source ~/software/miniconda3/etc/profile.d/conda.sh
 conda activate energetic_gnn
 
-cd "${WORK}/scripts_hgs_repair_20260625"
+SCRIPT_DIR="${QH_HEGNN_SCRIPT_DIR:-${WORK}/src}"
+cd "${SCRIPT_DIR}"
 
 export OMP_NUM_THREADS=8
 export MKL_NUM_THREADS=8
@@ -43,11 +44,12 @@ export OPENBLAS_NUM_THREADS=8
 export NUMEXPR_NUM_THREADS=8
 export QH_HEGNN_CONTROLLED_SPLIT_JSON="${SPLIT_JSON}"
 
-OUT_DIR="../results/truephys_hgs_standard_3split_qh_hegnn_20260626/${CASE_TAG}"
+OUT_ROOT="${QH_HEGNN_RESULTS_DIR:-${WORK}/results/standard_validation}"
+OUT_DIR="${OUT_ROOT}/${CASE_TAG}"
 EVIDENCE_DIR="${OUT_DIR}/model_diagnostics"
 mkdir -p "${OUT_DIR}" "${EVIDENCE_DIR}"
 
-python -u qh_hegnn_truephys_hgs_repair_wrapper_20260625.py \
+python -u run_qh_hegnn_controlled_split.py \
   --model_variant final_specialist \
   --epochs 120 \
   --batch_size 64 \
@@ -71,7 +73,7 @@ python -u qh_hegnn_truephys_hgs_repair_wrapper_20260625.py \
   --enable_bde_features \
   --bde_feature_path ../data/curated_molecule_clean_v1/old_dataset_molecule_clean.csv \
   --enable_true_phys_features \
-  --true_phys_feature_path /scratch/gma/bzhang/codex_vsbde_true_phys_features_20260624/true_phys_features_merged_20260624.csv \
+  --true_phys_feature_path "${QH_HEGNN_PHYSICS_FEATURE_TABLE:-${WORK}/data/physics_features_merged.csv}" \
   --residual_policy conservative \
   --residual_min_corr 0.05 \
   --alpha_max 0.75 \
@@ -79,14 +81,14 @@ python -u qh_hegnn_truephys_hgs_repair_wrapper_20260625.py \
   --alpha_min_improvement 0.005 \
   --export_npj_evidence \
   --npj_evidence_dir "${EVIDENCE_DIR}" \
-  --run_tag "truephys_hgs_standard_${CASE_TAG}" \
+  --run_tag "standard_validation_${CASE_TAG}" \
   --seed "${SEED}" \
   --output_dir "${OUT_DIR}" \
-  --final_model_path "${OUT_DIR}/final_specialist_truephys_hgs_standard_${CASE_TAG}.joblib"
+  --final_model_path "${OUT_DIR}/final_specialist_standard_validation_${CASE_TAG}.joblib"
 
-METRICS="${OUT_DIR}/final_specialist_final_metrics_truephys_hgs_standard_${CASE_TAG}.csv"
-SPLIT_OUT="${OUT_DIR}/split_truephys_hgs_standard_${CASE_TAG}.json"
-PREDICTIONS="${EVIDENCE_DIR}/Supplementary_NPJ_Validation_Predictions_truephys_hgs_standard_${CASE_TAG}.csv"
+METRICS="${OUT_DIR}/final_specialist_final_metrics_standard_validation_${CASE_TAG}.csv"
+SPLIT_OUT="${OUT_DIR}/split_standard_validation_${CASE_TAG}.json"
+PREDICTIONS="${EVIDENCE_DIR}/Supplementary_NPJ_Validation_Predictions_standard_validation_${CASE_TAG}.csv"
 for f in "${METRICS}" "${SPLIT_OUT}" "${PREDICTIONS}"; do
   if [ ! -s "$f" ]; then
     echo "[ABORT] Missing expected artifact: $f"
@@ -95,7 +97,7 @@ for f in "${METRICS}" "${SPLIT_OUT}" "${PREDICTIONS}"; do
 done
 
 echo "=================================================="
-echo "Standard true-phys HGS case finished"
+echo "Standard validation case finished"
 echo "Case: ${CASE_TAG}"
 echo "End: $(date)"
 echo "Metrics: ${METRICS}"

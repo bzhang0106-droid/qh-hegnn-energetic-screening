@@ -5,15 +5,15 @@ This release directory was generated from `NPJ_submission/code` and the processe
 ## Included
 
 - Core workflow scripts for molecular generation, model training, screening, QTAIM/BDE/ESP parsing and diagnostic analyses.
-- Final true-phys/HGS scripts and source-data-backed Fig. 1/Fig. 4 scripts used in the manuscript update.
+- Controlled validation scripts for Random, Scaffold and Butina split families.
 - Slurm templates documenting the HPC execution context.
-- Processed CSV/SMI tables needed to inspect the manuscript results and figure source data.
+- Processed CSV/SMI tables needed to inspect the manuscript results and source data.
 
 ## Excluded
 
 - Manuscript DOCX generation, Zotero/reference update and revision automation scripts.
 - Smoke-test wrappers and auxiliary preview/check scripts.
-- Historical workflow snapshots and superseded draft plotting scripts.
+- Historical workflow snapshots and draft plotting scripts.
 - SFTP helper files, remote probe scripts and local transfer instructions.
 - Office documents, PDFs, figures, compressed archives and binary model artifacts.
 - Raw ORCA/xTB/Multiwfn/Critic2 scratch outputs and HPC temporary directories.

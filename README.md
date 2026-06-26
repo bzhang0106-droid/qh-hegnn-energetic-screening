@@ -1,11 +1,11 @@
 # QH-HEGNN energetic-molecule screening workflow
 
-This repository contains the code release for the npj Computational Materials manuscript on QTAIM-guided, weakest-bond-aware neural-network screening of energetic molecules.
+This repository contains the formal code and processed-data release for the npj Computational Materials manuscript on QTAIM-guided, weakest-bond-aware neural-network screening of energetic molecules.
 
 ## What is included
 
-- `src/`: core scripts for molecular screening, QH-HEGNN/PaiNN training, true-phys/HGS evaluation, xTB/ORCA/Multiwfn/Critic2 parsing, QTAIM/BDE merging, Pareto selection, OOD diagnostics, and manuscript figure/source-data generation.
-- `data/processed/`: processed source/supplementary tables copied from the submission package, including the updated Fig. 1 and Fig. 4 source-data files.
+- `src/`: core scripts for molecular curation, QH-HEGNN/PaiNN training, physics-feature extraction, xTB/ORCA/Multiwfn/Critic2 parsing, QTAIM/BDE merging, Pareto selection and model-validation diagnostics.
+- `data/processed/`: processed manuscript data, supplementary tables and source-data tables needed to inspect the reported results.
 - `slurm_templates/`: Slurm templates documenting the HPC execution modes used for expensive calculations.
 - `docs/paper1_code_package/`: environment notes, requirements and the current code-package manifest.
 
@@ -18,11 +18,11 @@ conda env create -f docs/paper1_code_package/environment_energetic_gnn_no_builds
 conda activate energetic_gnn
 ```
 
-The true-phys/HGS Fig. 4 evaluation uses the scripts `src/true_phys_feature_extractor_20260624.py`, `src/03_egnn_painn_train_truephys_hgs_repair_20260625.py`, `src/qh_hegnn_truephys_hgs_repair_wrapper_20260625.py`, `src/generate_truephys_hgs_standard_splits_20260626.py` and `src/plot_fig4_truephys_hgs_standard_3split_release_20260626.py`. The updated Fig. 1 source panel uses `src/redesign_figure1a_screening_stream_refined_20260626.py`.
+The canonical model-training entry point is `src/03_egnn_painn_train.py`. Controlled Random/Scaffold/Butina validation runs use `src/generate_standard_validation_splits.py` and `src/run_qh_hegnn_controlled_split.py`; the corresponding processed validation summaries are provided in `data/processed/`.
 
 ## Reproducibility boundary
 
-The repository contains code and processed data directly related to the manuscript calculations, source tables and final figure generation. Manuscript-writing, reference-management, smoke-test wrappers, historical workflow snapshots and superseded draft plotting scripts are intentionally excluded. Full end-to-end quantum-chemical reproduction requires separately installed ORCA, xTB, Multiwfn, Critic2, graph-learning dependencies, and access to suitable HPC resources. Some scripts retain path conventions from the original computing environment and should be configured before rerunning on a new machine.
+The repository contains code and processed data directly related to the manuscript calculations, source tables and model-validation results. Manuscript-writing, reference-management, smoke-test wrappers, historical workflow snapshots and draft plotting scripts are intentionally excluded. Full end-to-end quantum-chemical reproduction requires separately installed ORCA, xTB, Multiwfn, Critic2, graph-learning dependencies and access to suitable HPC resources. Some scripts retain path conventions from the original computing environment and should be configured before rerunning on a new machine.
 
 ## Citation and DOI
 

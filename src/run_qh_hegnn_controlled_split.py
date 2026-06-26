@@ -10,12 +10,12 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-BASE = HERE / "03_egnn_painn_train_truephys_hgs_repair_20260625.py"
+BASE = HERE / "03_egnn_painn_train.py"
 SPLIT_JSON = Path(os.environ["QH_HEGNN_CONTROLLED_SPLIT_JSON"]).resolve()
 
 
 def load_training_module():
-    spec = importlib.util.spec_from_file_location("qh_hegnn_train03_truephys_controlled", BASE)
+    spec = importlib.util.spec_from_file_location("qh_hegnn_train03_controlled", BASE)
     mod = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     sys.modules[spec.name] = mod
