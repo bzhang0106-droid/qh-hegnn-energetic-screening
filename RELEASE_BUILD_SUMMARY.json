@@ -1,8 +1,8 @@
 {
   "package": "qh-hegnn-energetic-screening",
-  "version": "v1.0.2",
+  "version": "v1.0.3",
   "release_date": "2026-06-26",
-  "files_listed": 77,
+  "files_listed": 78,
   "categories": [
     "core_script",
     "processed_data",

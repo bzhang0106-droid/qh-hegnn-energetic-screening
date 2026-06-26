@@ -1,78 +1,79 @@
 category,source,destination,reason
-release_metadata,formal v1.0.2 manuscript code/data release,.gitattributes,Repository metadata for the formal release package.
-release_metadata,formal v1.0.2 manuscript code/data release,.gitignore,Repository metadata for the formal release package.
-release_metadata,formal v1.0.2 manuscript code/data release,CITATION.cff,Repository metadata for the formal release package.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\MANIFEST_SUPPLEMENTARY_DATA_20260626.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Model_Robustness_Validation_Metrics_Long.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Model_Robustness_Validation_Predictions_Long.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Model_Robustness_Validation_R2_Summary.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Model_Robustness_Validation_Rows.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Model_Robustness_Validation_Run_Completion.json,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Model_Robustness_Validation_Split_Inventory.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\parsed_quantum_records\qtaim_top20_frequency_summary_20260608.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\parsed_quantum_records\qtaim_top20_qm_records_manifest_20260608.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\README_SUPPLEMENTARY_DATA_SYNCED.md,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Source_Data_Figure_3_Parity_Metrics.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Source_Data_Model_Robustness_Applicability.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Source_Data_Screening_Workflow.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Source_Data_Table_2_QTAIM_Aware_Top20.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Supplementary_Data_1_Curated_5432_Molecule_Database.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Supplementary_Data_2_Target_Matrix_10D.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Supplementary_Data_3_xTB_Feature_Matrix_10D.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Supplementary_Data_4_Validation_Predictions_Final_Hybrid_seed42.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Supplementary_Data_5_Final_Global_Top20_Retrosynthesis_Input.smi,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\Supplementary_Data_6_Common_Energetic_Molecules_DLPNoMP2_Enthalpy.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\TruePhys_Feature_Coverage_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\TruePhys_Feature_Manifest_QA_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\TruePhys_Feature_Status_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\TruePhys_FinalScale_Valid10D_Labels_20260623.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-processed_data,formal v1.0.2 manuscript code/data release,data\processed\TruePhys_SurfaceESP_QTAIM_Features_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
-release_document,formal v1.0.2 manuscript code/data release,docs\COMPUTATIONAL_PROVENANCE.md,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,docs\FILE_SELECTION_NOTES.md,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,docs\paper1_code_package\CODE_PACKAGE_MANIFEST_20260626.csv,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,docs\paper1_code_package\ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,docs\paper1_code_package\environment_energetic_gnn_no_builds.yml,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,docs\paper1_code_package\README_CODE_RELEASE.md,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,docs\paper1_code_package\requirements.txt,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,docs\RELEASE_NOTES_v1.0.2.md,"Release, provenance, environment or package documentation."
-release_metadata,formal v1.0.2 manuscript code/data release,LICENSE,Repository metadata for the formal release package.
-release_document,formal v1.0.2 manuscript code/data release,README.md,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,RELEASE_BUILD_SUMMARY.json,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,RELEASE_FILE_MANIFEST.csv,"Release, provenance, environment or package documentation."
-release_document,formal v1.0.2 manuscript code/data release,RELEASE_FILE_MANIFEST.json,"Release, provenance, environment or package documentation."
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_03_10d_bde_AL08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_03_10d_bde_AL08_seed_stability_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_08a_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_p4_and_final_report_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_post08b18_20_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_qh_hegnn_standard_validation.slurm,HPC execution template documenting expensive calculation or validation runs.
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_summarize_multiseed_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
-slurm_template,formal v1.0.2 manuscript code/data release,slurm_templates\run_true_phys_feature_extract_20260624.slurm,HPC execution template documenting expensive calculation or validation runs.
-core_script,formal v1.0.2 manuscript code/data release,src\03_egnn_painn_train.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\04_ultimate_discovery.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\05_physics_purifier.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\05b_extract_candidates.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\07_kamlet_jacobs_eval.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\08a_run_multiwfn_critic2.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\08b_ultimate_merge.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\09_eda_analysis.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\11_log_evaluation.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\12_density_calibration_database.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\13b_candidate_space_al_pareto.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\14_ood_trigger_ablation.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\18_build_10d_target_matrix.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\20_prepare_xtb_missing_for_current_db.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\21_finalize_al_iteration.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\23_top_synthesizability_evidence.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\add_final_heat_of_explosion_q_outputs_20260607.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\compute_final_synthesis_readiness_deepaudit_20260606.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\generate_standard_validation_splits.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\integrate_external_retrosynthesis_into_final_database_20260606.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\merge_final_top20_external_retrosynthesis_20260606.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\parse_aizynthfinder_final_top20_20260606.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\parse_top20_qm_validation_summary_20260607.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\render_qtaim_vmd_mechanism_20260607.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\run_npj_targetwise_leakage_masking_ablation_20260607.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\run_qh_hegnn_controlled_split.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\summarize_multiseed_al08_20260605.py,"Core manuscript computational, parsing, training or validation script."
-core_script,formal v1.0.2 manuscript code/data release,src\true_phys_feature_extractor_20260624.py,"Core manuscript computational, parsing, training or validation script."
+release_metadata,formal v1.0.3 manuscript code/data release,.gitattributes,Repository metadata for the formal release package.
+release_metadata,formal v1.0.3 manuscript code/data release,.gitignore,Repository metadata for the formal release package.
+release_metadata,formal v1.0.3 manuscript code/data release,CITATION.cff,Repository metadata for the formal release package.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\MANIFEST_SUPPLEMENTARY_DATA_20260626.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Model_Robustness_Validation_Metrics_Long.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Model_Robustness_Validation_Predictions_Long.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Model_Robustness_Validation_R2_Summary.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Model_Robustness_Validation_Rows.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Model_Robustness_Validation_Run_Completion.json,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Model_Robustness_Validation_Split_Inventory.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\parsed_quantum_records\qtaim_top20_frequency_summary_20260608.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\parsed_quantum_records\qtaim_top20_qm_records_manifest_20260608.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\README_SUPPLEMENTARY_DATA_SYNCED.md,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Source_Data_Figure_3_Parity_Metrics.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Source_Data_Model_Robustness_Applicability.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Source_Data_Screening_Workflow.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Source_Data_Table_2_QTAIM_Aware_Top20.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Supplementary_Data_1_Curated_5432_Molecule_Database.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Supplementary_Data_2_Target_Matrix_10D.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Supplementary_Data_3_xTB_Feature_Matrix_10D.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Supplementary_Data_4_Validation_Predictions_Final_Hybrid_seed42.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Supplementary_Data_5_Final_Global_Top20_Retrosynthesis_Input.smi,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\Supplementary_Data_6_Common_Energetic_Molecules_DLPNoMP2_Enthalpy.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\TruePhys_Feature_Coverage_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\TruePhys_Feature_Manifest_QA_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\TruePhys_Feature_Status_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\TruePhys_FinalScale_Valid10D_Labels_20260623.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+processed_data,formal v1.0.3 manuscript code/data release,data\processed\TruePhys_SurfaceESP_QTAIM_Features_20260624.csv,Processed manuscript source/supplementary data needed to inspect reported results.
+release_document,formal v1.0.3 manuscript code/data release,docs\COMPUTATIONAL_PROVENANCE.md,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\FILE_SELECTION_NOTES.md,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\paper1_code_package\CODE_PACKAGE_MANIFEST_20260626.csv,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\paper1_code_package\ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\paper1_code_package\environment_energetic_gnn_no_builds.yml,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\paper1_code_package\README_CODE_RELEASE.md,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\paper1_code_package\requirements.txt,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\RELEASE_NOTES_v1.0.2.md,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,docs\RELEASE_NOTES_v1.0.3.md,"Release, provenance, environment or package documentation."
+release_metadata,formal v1.0.3 manuscript code/data release,LICENSE,Repository metadata for the formal release package.
+release_document,formal v1.0.3 manuscript code/data release,README.md,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,RELEASE_BUILD_SUMMARY.json,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,RELEASE_FILE_MANIFEST.csv,"Release, provenance, environment or package documentation."
+release_document,formal v1.0.3 manuscript code/data release,RELEASE_FILE_MANIFEST.json,"Release, provenance, environment or package documentation."
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_03_10d_bde_AL08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_03_10d_bde_AL08_seed_stability_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_08a_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_p4_and_final_report_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_post08b18_20_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_qh_hegnn_standard_validation.slurm,HPC execution template documenting expensive calculation or validation runs.
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_summarize_multiseed_al08_20260605.slurm,HPC execution template documenting expensive calculation or validation runs.
+slurm_template,formal v1.0.3 manuscript code/data release,slurm_templates\run_true_phys_feature_extract_20260624.slurm,HPC execution template documenting expensive calculation or validation runs.
+core_script,formal v1.0.3 manuscript code/data release,src\03_egnn_painn_train.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\04_ultimate_discovery.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\05_physics_purifier.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\05b_extract_candidates.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\07_kamlet_jacobs_eval.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\08a_run_multiwfn_critic2.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\08b_ultimate_merge.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\09_eda_analysis.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\11_log_evaluation.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\12_density_calibration_database.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\13b_candidate_space_al_pareto.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\14_ood_trigger_ablation.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\18_build_10d_target_matrix.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\20_prepare_xtb_missing_for_current_db.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\21_finalize_al_iteration.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\23_top_synthesizability_evidence.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\add_final_heat_of_explosion_q_outputs_20260607.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\compute_final_synthesis_readiness_deepaudit_20260606.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\generate_standard_validation_splits.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\integrate_external_retrosynthesis_into_final_database_20260606.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\merge_final_top20_external_retrosynthesis_20260606.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\parse_aizynthfinder_final_top20_20260606.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\parse_top20_qm_validation_summary_20260607.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\render_qtaim_vmd_mechanism_20260607.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\run_npj_targetwise_leakage_masking_ablation_20260607.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\run_qh_hegnn_controlled_split.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\summarize_multiseed_al08_20260605.py,"Core manuscript computational, parsing, training or validation script."
+core_script,formal v1.0.3 manuscript code/data release,src\true_phys_feature_extractor_20260624.py,"Core manuscript computational, parsing, training or validation script."
