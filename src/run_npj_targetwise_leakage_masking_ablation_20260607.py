@@ -382,7 +382,7 @@ def main() -> None:
         "",
         "## Scope",
         "",
-        "This audit retrains tabular surrogate regressors on the final frozen 5432-row target matrix and aligned xTB descriptors after removing target-homologous input features. It is designed to address leakage-risk reviewer concerns and should be reported as a leakage diagnostic, not as a replacement for the production QH-HEGNN model.",
+        "This audit retrains tabular surrogate regressors on the final frozen 5432-row target matrix and aligned xTB descriptors after removing target-homologous input features. It is designed to address leakage-risk controls and should be reported as a leakage diagnostic, not as a replacement for the production QH-HEGNN model.",
         "",
         "## Inputs",
         "",

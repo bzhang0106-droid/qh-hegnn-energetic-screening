@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the archived release and the associated manuscript."
 title: "QH-HEGNN energetic-molecule screening workflow"
-version: "1.0.1"
-doi: "10.5281/zenodo.20685580"
-date-released: "2026-06-14"
+version: "1.0.2"
+doi: "10.5281/zenodo.20685579"
+date-released: "2026-06-26"
 authors:
   - name: "QH-HEGNN manuscript authors"
 repository-code: "https://github.com/bzhang0106-droid/qh-hegnn-energetic-screening"

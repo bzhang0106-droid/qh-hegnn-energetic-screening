@@ -1,4 +1,4 @@
-name: energetic_gnn_reviewer
+name: energetic_gnn
 channels:
   - conda-forge
   - pytorch

@@ -34,12 +34,6 @@ conda env export --no-builds > manuscript_npJ/final_submission_package_AL08_2026
 python -V > manuscript_npJ/final_submission_package_AL08_20260605/code_release/python_version.txt
 ```
 
-## Minimal Verification
+## Reproducibility Boundary
 
-For reviewer access, the repository should provide a small command that:
-
-1. reads the released final frozen database CSV,
-2. verifies expected row and column counts,
-3. regenerates one small summary table,
-4. regenerates one non-sensitive figure from released data.
-
+The package provides manuscript-related scripts and processed source data. It does not include a separate smoke-test wrapper; readers should inspect or rerun the script corresponding to the manuscript result of interest.

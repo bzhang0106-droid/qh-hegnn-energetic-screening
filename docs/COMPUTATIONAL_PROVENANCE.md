@@ -11,9 +11,9 @@ The manuscript combines molecular generation, graph-neural-network prediction, s
 - PyTorch/PyTorch Geometric for graph-neural-network models.
 - Slurm for remote HPC orchestration.
 
-## Reviewer-facing reproducibility level
+## Reproducibility level
 
-The repository supports lightweight reproducibility from processed tables. It does not bundle licensed software, raw wavefunction files, raw scratch directories, or binary model artifacts. Full end-to-end reproduction requires configuring the external programs above and rerunning the computational workflow on suitable hardware.
+The repository provides processed manuscript tables, source-data files and custom scripts needed to inspect the reported results. It does not bundle licensed software, raw wavefunction files, raw scratch directories, smoke-test wrappers or binary model artifacts. Full end-to-end reproduction requires configuring the external programs above and rerunning the computational workflow on suitable hardware.
 
 ## npj computational reporting reminders
 

@@ -1,16 +1,14 @@
 {
   "target": "NPJ_submission/github_release_qh_hegnn_20260614",
-  "files_listed": 99,
+  "version": "1.0.2",
+  "files_listed": 68,
   "categories": [
-    "analysis_script",
     "core_script",
-    "legacy_workflow_snapshot",
-    "processed_data_for_smoke_test",
+    "processed_data",
     "release_document",
     "release_metadata",
-    "reviewer_script",
     "slurm_template"
   ],
   "updated_at": "2026-06-26",
-  "notes": "Cleaned package after final Fig. 1 refresh and true-phys/HGS Fig. 4 update; manuscript-writing and superseded draft plotting scripts excluded."
+  "notes": "Strict cleaned package: manuscript-related code, final Fig. 1/Fig. 4 source scripts, processed source data, Slurm templates and documentation only."
 }

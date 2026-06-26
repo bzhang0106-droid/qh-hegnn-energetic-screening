@@ -1,596 +1,410 @@
 [
   {
     "category": "release_metadata",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": ".gitattributes",
     "reason": "Repository metadata."
   },
   {
     "category": "release_metadata",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": ".gitignore",
     "reason": "Repository metadata."
   },
   {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\check_08a_al08_ready_20260605.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\generate_al08_p1_error_vs_similarity.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\generate_al08_p3_p5_evidence.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\generate_al08_p4_ranking_stability.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\organize_al08_final_data_inventory.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\post_al08_counts_20260605.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\sort_integrate_final_database_by_detonation.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "current cleaned local release package",
-    "destination": "analysis\\final_freeze_automation\\summarize_multiseed_al08_20260605.py",
-    "reason": "Retained computational analysis/ranking/source-data script."
-  },
-  {
     "category": "release_metadata",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "CITATION.cff",
     "reason": "Repository metadata."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Figure_1a_generation_screening_stream_refined_NPJstyle_20260626_source.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Figure_4_truephys_hgs_standard_3split_narrative_atlas_source_20260626.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\README_SUPPLEMENTARY_DATA_SYNCED.md",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\standard_3split_hgs_testrows_20260626.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Supplementary_Data_1_Curated_5432_Molecule_Database.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Supplementary_Data_2_Target_Matrix_10D.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Supplementary_Data_3_xTB_Feature_Matrix_10D.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Supplementary_Data_4_Validation_Predictions_Final_Hybrid_seed42.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Supplementary_Data_5_Final_Global_Top20_Retrosynthesis_Input.smi",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Supplementary_Data_6_Common_Energetic_Molecules_DLPNoMP2_Enthalpy.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Table_2_QTAIM_Aware_Stability_Constrained_Top20_20260607.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Table_S_Figure3_HELS_10Target_Parity_Metrics_20260608.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Table_S_QTAIM_Counterfactual_Selection_20260607.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\Table_S_QTAIM_Top20_Route_AD_Audit_20260608.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\truephys_hgs_standard_3split_prediction_long_20260626.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
-    "category": "processed_data_for_smoke_test",
-    "source": "current cleaned local release package",
+    "category": "processed_data",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "data\\processed\\truephys_hgs_standard_3split_qh_hegnn_r2_summary_20260626.csv",
-    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table needed to inspect reported results."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "docs\\COMPUTATIONAL_PROVENANCE.md",
     "reason": "Release, provenance, environment, or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "docs\\FILE_SELECTION_NOTES.md",
     "reason": "Release, provenance, environment, or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "docs\\paper1_code_package\\CODE_PACKAGE_MANIFEST_20260626.csv",
     "reason": "Release, provenance, environment, or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "docs\\paper1_code_package\\ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md",
     "reason": "Release, provenance, environment, or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "docs\\paper1_code_package\\environment_energetic_gnn_no_builds.yml",
     "reason": "Release, provenance, environment, or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "docs\\paper1_code_package\\README_CODE_RELEASE.md",
     "reason": "Release, provenance, environment, or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
-    "destination": "docs\\paper1_code_package\\README_MINIMAL_REPRODUCIBILITY_20260609.md",
-    "reason": "Release, provenance, environment, or package documentation."
-  },
-  {
-    "category": "release_document",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "docs\\paper1_code_package\\requirements.txt",
     "reason": "Release, provenance, environment, or package documentation."
   },
   {
     "category": "release_document",
-    "source": "current cleaned local release package",
-    "destination": "docs\\RELEASE_NOTES_v1.0.0.md",
+    "source": "current cleaned v1.0.2 local release package",
+    "destination": "docs\\RELEASE_NOTES_v1.0.2.md",
     "reason": "Release, provenance, environment, or package documentation."
-  },
-  {
-    "category": "release_document",
-    "source": "current cleaned local release package",
-    "destination": "docs\\RELEASE_NOTES_v1.0.1.md",
-    "reason": "Release, provenance, environment, or package documentation."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\00_gpt_generator.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\01_bayesian_fast_surrogate.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\02_orca_oracle_parallel.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\02c_orca_verification.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\03_egnn_painn_train.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\04_ultimate_discovery.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\05_physics_purifier.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\07_kamlet_jacobs_eval.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\08a_run_multiwfn_critic2.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\08b_ultimate_merge.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\09_eda_analysis.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\10_autonomous_flywheel.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\11_log_evaluation.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\check_leakage.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\evaluate_3d.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\results_analyze_train_val_redundancy.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\results_curate_molecule_clean_v1.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\results_extract_industrial_benchmarks_v2.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "current cleaned local release package",
-    "destination": "legacy_workflow_snapshot\\results_parse_xtb_features.py",
-    "reason": "Selected computational workflow snapshot retained for provenance."
   },
   {
     "category": "release_metadata",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "LICENSE",
     "reason": "Repository metadata."
   },
   {
     "category": "release_metadata",
-    "source": "current cleaned local release package",
-    "destination": "MINIMAL_REPRODUCIBILITY_CHECKLIST.md",
-    "reason": "Repository metadata."
-  },
-  {
-    "category": "release_metadata",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "README.md",
     "reason": "Repository metadata."
   },
   {
-    "category": "reviewer_script",
-    "source": "current cleaned local release package",
-    "destination": "scripts\\minimal_reproduce_reviewer_check.py",
-    "reason": "Lightweight reviewer reproducibility check script."
-  },
-  {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_03_10d_bde_AL08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_03_10d_bde_AL08_seed_stability_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_08a_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_p4_and_final_report_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_post08b18_20_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_qh_hegnn_truephys_hgs_standard_3split_20260626.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_summarize_multiseed_al08_20260605.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "slurm_template",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "slurm_templates\\run_true_phys_feature_extract_20260624.slurm",
     "reason": "HPC execution template documenting expensive calculation modes."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\03_egnn_painn_train.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\03_egnn_painn_train_truephys_hgs_repair_20260625.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\04_ultimate_discovery.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\05_physics_purifier.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\05b_extract_candidates.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\07_kamlet_jacobs_eval.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\08a_run_multiwfn_critic2.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\08b_ultimate_merge.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\09_eda_analysis.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\11_log_evaluation.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\12_density_calibration_database.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\13b_candidate_space_al_pareto.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\14_ood_trigger_ablation.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\18_build_10d_target_matrix.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\20_prepare_xtb_missing_for_current_db.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\21_finalize_al_iteration.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\23_top_synthesizability_evidence.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\add_final_heat_of_explosion_q_outputs_20260607.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\compute_final_synthesis_readiness_deepaudit_20260606.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\generate_truephys_hgs_standard_splits_20260626.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\integrate_external_retrosynthesis_into_final_database_20260606.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\merge_final_top20_external_retrosynthesis_20260606.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\parse_aizynthfinder_final_top20_20260606.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\parse_top20_qm_validation_summary_20260607.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\plot_fig4_truephys_hgs_standard_3split_release_20260626.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\qh_hegnn_truephys_hgs_repair_wrapper_20260625.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\redesign_figure1a_screening_stream_refined_20260626.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\render_qtaim_vmd_mechanism_20260607.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\run_npj_targetwise_leakage_masking_ablation_20260607.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\summarize_multiseed_al08_20260605.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   },
   {
     "category": "core_script",
-    "source": "current cleaned local release package",
+    "source": "current cleaned v1.0.2 local release package",
     "destination": "src\\true_phys_feature_extractor_20260624.py",
-    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+    "reason": "Manuscript-related computational, true-phys/HGS, data-processing, or final figure source script."
   }
 ]
