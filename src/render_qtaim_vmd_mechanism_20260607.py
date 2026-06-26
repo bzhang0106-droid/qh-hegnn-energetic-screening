@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -16,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[2]
 FORMAL_FIG = ROOT / "Manuscript" / "02_main_figures" / "formal_v4_nature_revision"
 SI_TABLES = ROOT / "Manuscript" / "04_supplementary_tables" / "01_si_tables"
 
-ASCII_WORK = Path(r"D:\CodexData\tmp\wf2_vmd_render_20260607")
+ASCII_WORK = Path(os.environ.get("QH_HEGNN_VMD_WORK", str(ROOT / "work" / "vmd_render"))).resolve()
 INPUTS = ASCII_WORK / "inputs"
 RENDERS = ASCII_WORK / "renders"
 RENDERS.mkdir(parents=True, exist_ok=True)

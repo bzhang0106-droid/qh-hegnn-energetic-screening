@@ -16,9 +16,9 @@ core_script,20_prepare_xtb_missing_for_current_db.py,5145,"Manuscript-related co
 core_script,21_finalize_al_iteration.py,4068,"Manuscript-related computational, data-processing or analysis script."
 core_script,23_top_synthesizability_evidence.py,12053,"Manuscript-related computational, data-processing or analysis script."
 core_script,add_final_heat_of_explosion_q_outputs_20260607.py,9326,"Manuscript-related computational, data-processing or analysis script."
-release_manifest,CODE_PACKAGE_MANIFEST_20260626.csv,5422,File manifest for the formal code package.
+release_manifest,CODE_PACKAGE_MANIFEST_20260626.csv,5205,File manifest for the formal code package.
 core_script,compute_final_synthesis_readiness_deepaudit_20260606.py,21520,"Manuscript-related computational, data-processing or analysis script."
-release_document,ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md,1466,"Environment, reproducibility or package documentation."
+release_document,ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md,1232,"Environment, reproducibility or package documentation."
 release_document,environment_energetic_gnn_no_builds.yml,353,"Environment, reproducibility or package documentation."
 core_script,generate_standard_validation_splits.py,11965,"Controlled Random, Scaffold and Butina model-validation helper."
 core_script,integrate_external_retrosynthesis_into_final_database_20260606.py,5335,"Manuscript-related computational, data-processing or analysis script."
@@ -26,7 +26,7 @@ core_script,merge_final_top20_external_retrosynthesis_20260606.py,4937,"Manuscri
 core_script,parse_aizynthfinder_final_top20_20260606.py,3250,"Manuscript-related computational, data-processing or analysis script."
 core_script,parse_top20_qm_validation_summary_20260607.py,8786,"Manuscript-related computational, data-processing or analysis script."
 release_document,README_CODE_RELEASE.md,1700,"Environment, reproducibility or package documentation."
-core_script,render_qtaim_vmd_mechanism_20260607.py,15721,"Manuscript-related computational, data-processing or analysis script."
+core_script,render_qtaim_vmd_mechanism_20260607.py,15768,"Manuscript-related computational, data-processing or analysis script."
 release_document,requirements.txt,172,"Environment, reproducibility or package documentation."
 core_script,run_npj_targetwise_leakage_masking_ablation_20260607.py,17983,"Manuscript-related computational, data-processing or analysis script."
 core_script,run_qh_hegnn_controlled_split.py,1759,"Controlled Random, Scaffold and Butina model-validation helper."
@@ -37,6 +37,6 @@ slurm_template,slurm_templates/run_p4_and_final_report_al08_20260605.slurm,659,H
 slurm_template,slurm_templates/run_post08b18_20_al08_20260605.slurm,938,HPC execution template documenting expensive calculation modes.
 slurm_template,slurm_templates/run_qh_hegnn_standard_validation.slurm,3752,HPC execution template documenting expensive calculation modes.
 slurm_template,slurm_templates/run_summarize_multiseed_al08_20260605.slurm,546,HPC execution template documenting expensive calculation modes.
-slurm_template,slurm_templates/run_true_phys_feature_extract_20260624.slurm,1248,HPC execution template documenting expensive calculation modes.
+slurm_template,slurm_templates/run_true_phys_feature_extract_20260624.slurm,1135,HPC execution template documenting expensive calculation modes.
 core_script,summarize_multiseed_al08_20260605.py,2189,"Manuscript-related computational, data-processing or analysis script."
-core_script,true_phys_feature_extractor_20260624.py,25141,"Manuscript-related computational, data-processing or analysis script."
+core_script,true_phys_feature_extractor_20260624.py,25251,"Manuscript-related computational, data-processing or analysis script."

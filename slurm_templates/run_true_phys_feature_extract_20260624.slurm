@@ -7,20 +7,20 @@
 #SBATCH --mem=8G
 #SBATCH --time=06:00:00
 #SBATCH --array=0-99%8
-#SBATCH --output=/scratch/gma/bzhang/codex_vsbde_true_phys_features_20260624/logs/true_phys_feat_%A_%a.out
-#SBATCH --error=/scratch/gma/bzhang/codex_vsbde_true_phys_features_20260624/logs/true_phys_feat_%A_%a.err
+#SBATCH --output=logs/physics_features_%A_%a.out
+#SBATCH --error=logs/physics_features_%A_%a.err
 
 set -euo pipefail
 
-ROOT=/scratch/gma/bzhang/codex_vsbde_true_phys_features_20260624
+ROOT=${QH_HEGNN_PHYSICS_FEATURE_ROOT:-/scratch/gma/bzhang/qh_hegnn_physics_features}
 PY=${PY:-/home/gma/bzhang/software/miniconda3/envs/energetic_gnn/bin/python}
 SCRIPT=${SCRIPT:-$ROOT/scripts/true_phys_feature_extractor_20260624.py}
-MANIFEST=${MANIFEST:-$ROOT/true_phys_feature_manifest_20260624.csv}
+MANIFEST=${MANIFEST:-$ROOT/physics_feature_manifest.csv}
 CHUNK_SIZE=${CHUNK_SIZE:-57}
 
 mkdir -p "$ROOT/logs" "$ROOT/features_parts" "$ROOT/work"
 
-echo "===== true physical feature extraction ====="
+echo "===== physics-feature extraction ====="
 echo "job=${SLURM_JOB_ID:-manual} task=${SLURM_ARRAY_TASK_ID:-0}"
 echo "host=$(hostname)"
 echo "root=$ROOT"

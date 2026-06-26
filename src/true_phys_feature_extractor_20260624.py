@@ -35,11 +35,17 @@ import pandas as pd
 
 
 DEFAULT_DATASET = Path(
-    "/scratch/gma/bzhang/codex_vsbde_qh_hegnn_controlled_eval_20260624/"
-    "data/curated_molecule_clean_v1/old_dataset_molecule_clean.csv"
+    os.environ.get(
+        "QH_HEGNN_DATASET",
+        "/scratch/gma/bzhang/qh_hegnn_standard_validation/data/curated_molecule_clean_v1/old_dataset_molecule_clean.csv",
+    )
 )
-DEFAULT_ACTIVE_ROOT = Path("/scratch/gma/bzhang/codex_vsbde_active_learning_batch_20260623")
-DEFAULT_OUT_ROOT = Path("/scratch/gma/bzhang/codex_vsbde_true_phys_features_20260624")
+DEFAULT_ACTIVE_ROOT = Path(
+    os.environ.get("QH_HEGNN_ACTIVE_ROOT", "/scratch/gma/bzhang/qh_hegnn_active_learning_batch")
+)
+DEFAULT_OUT_ROOT = Path(
+    os.environ.get("QH_HEGNN_PHYSICS_FEATURE_ROOT", "/scratch/gma/bzhang/qh_hegnn_physics_features")
+)
 DEFAULT_MULTIWFN = Path("/home/gma/bzhang/soft/Multiwfn_2026.2.2_bin_Linux_noGUI/Multiwfn_noGUI")
 DEFAULT_ORCA2MKL = Path("/home/gma/bzhang/orca6.0/orca_6_0_0_shared_openmpi416/orca_2mkl")
 

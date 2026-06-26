@@ -5,7 +5,6 @@
 - Remote workflow root used by scripts: `/home/gma/bzhang/bzhang/Workflow2.0`
 - Remote conda activation path referenced by scripts: `/home/gma/bzhang/software/miniconda3/etc/profile.d/conda.sh`
 - Remote conda environment referenced by Slurm scripts: `energetic_gnn`
-- Local Codex Python used for package inspection: `C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`
 
 ## Expected Python Dependencies
 
@@ -30,8 +29,8 @@ The exact pinned environment should be exported from the remote `energetic_gnn` 
 ```bash
 source /home/gma/bzhang/software/miniconda3/etc/profile.d/conda.sh
 conda activate energetic_gnn
-conda env export --no-builds > manuscript_npJ/final_submission_package_AL08_20260605/code_release/environment_energetic_gnn_no_builds.yml
-python -V > manuscript_npJ/final_submission_package_AL08_20260605/code_release/python_version.txt
+conda env export --no-builds > docs/paper1_code_package/environment_energetic_gnn_no_builds.yml
+python -V > docs/paper1_code_package/python_version.txt
 ```
 
 ## Reproducibility Boundary
