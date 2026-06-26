@@ -1,0 +1,27 @@
+{
+  "expected_cases": [
+    "random_80_20_seed42",
+    "random_80_20_seed7",
+    "random_80_20_seed123",
+    "scaffold_80_20_seed42",
+    "scaffold_80_20_seed7",
+    "scaffold_80_20_seed123",
+    "butina_80_20_seed42",
+    "butina_80_20_seed7",
+    "butina_80_20_seed123"
+  ],
+  "completed_cases": [
+    "butina_80_20_seed123",
+    "butina_80_20_seed42",
+    "butina_80_20_seed7",
+    "random_80_20_seed123",
+    "random_80_20_seed42",
+    "random_80_20_seed7",
+    "scaffold_80_20_seed123",
+    "scaffold_80_20_seed42",
+    "scaffold_80_20_seed7"
+  ],
+  "missing_cases": [],
+  "completed_n": 9,
+  "expected_n": 9
+}

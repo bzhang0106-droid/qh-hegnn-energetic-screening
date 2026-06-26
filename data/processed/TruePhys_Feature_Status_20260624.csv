@@ -1,0 +1,4 @@
+extract_status,esp_status,qtaim_status,n
+ok,ok,ok,4238
+partial,parse_missing_summary,parse_no_bcp,1410
+partial,parse_missing_summary,ok,1
