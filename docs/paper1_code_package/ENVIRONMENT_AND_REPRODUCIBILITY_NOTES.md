@@ -6,25 +6,18 @@
 - Remote conda activation path referenced by scripts: `/home/gma/bzhang/software/miniconda3/etc/profile.d/conda.sh`
 - Remote conda environment referenced by Slurm scripts: `energetic_gnn`
 
-## Expected Python Dependencies
+## Recorded Python Environment
 
-The code release likely requires:
+This release provides a lightweight conda environment file and a pip-style requirements file:
 
-- pandas
-- numpy
-- scipy
-- scikit-learn
-- matplotlib
-- seaborn
-- rdkit
-- torch
-- torch-geometric or equivalent graph neural network dependencies
-- xgboost
-- joblib
+- `docs/paper1_code_package/environment_energetic_gnn_no_builds.yml`
+- `docs/paper1_code_package/requirements.txt`
 
-The exact pinned environment should be exported from the remote `energetic_gnn` environment before public deposition.
+The Python dependency set includes pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, RDKit, PyTorch, PyTorch Geometric or an equivalent graph-learning stack, XGBoost, joblib, Pillow and python-docx.
 
-## Suggested Remote Export Command
+## Optional Environment Refresh Command
+
+The current release is ready for code and processed-data inspection. If the authors later rerun the remote workflow and want to refresh the environment snapshot, use:
 
 ```bash
 source /home/gma/bzhang/software/miniconda3/etc/profile.d/conda.sh
@@ -35,4 +28,4 @@ python -V > docs/paper1_code_package/python_version.txt
 
 ## Reproducibility Boundary
 
-The package provides manuscript-related scripts and processed source data. It does not include a separate smoke-test wrapper; readers should inspect or rerun the script corresponding to the manuscript result of interest.
+The package provides manuscript-related scripts and processed source data. It does not include a separate smoke-test wrapper. Full end-to-end reruns require local configuration of ORCA, xTB, Multiwfn, Critic2, Slurm and graph-learning dependencies; readers should inspect or rerun the script corresponding to the manuscript result of interest.

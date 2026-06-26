@@ -26,8 +26,8 @@ The repository contains code and processed data directly related to the manuscri
 
 ## Citation and DOI
 
-Current local package version: `v1.0.3` (2026-06-26).
+Current local package version: `v1.0.4` (2026-06-26).
 
 - All-versions DOI: https://doi.org/10.5281/zenodo.20685579
 
-Mint a new Zenodo archive for `v1.0.3` before final submission if the manuscript Code availability section needs a fixed version DOI rather than the GitHub URL plus concept DOI.
+Mint a new Zenodo archive for `v1.0.4` before final submission if the manuscript Code availability section needs a fixed version DOI rather than the GitHub URL plus concept DOI.

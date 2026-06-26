@@ -18,7 +18,7 @@ core_script,23_top_synthesizability_evidence.py,12053,"Manuscript-related comput
 core_script,add_final_heat_of_explosion_q_outputs_20260607.py,9326,"Manuscript-related computational, data-processing or analysis script."
 release_manifest,CODE_PACKAGE_MANIFEST_20260626.csv,5205,File manifest for the formal code package.
 core_script,compute_final_synthesis_readiness_deepaudit_20260606.py,21520,"Manuscript-related computational, data-processing or analysis script."
-release_document,ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md,1232,"Environment, reproducibility or package documentation."
+release_document,ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md,1626,"Environment, reproducibility or package documentation."
 release_document,environment_energetic_gnn_no_builds.yml,353,"Environment, reproducibility or package documentation."
 core_script,generate_standard_validation_splits.py,11965,"Controlled Random, Scaffold and Butina model-validation helper."
 core_script,integrate_external_retrosynthesis_into_final_database_20260606.py,5335,"Manuscript-related computational, data-processing or analysis script."
