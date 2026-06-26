@@ -1,500 +1,596 @@
 [
   {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\03_egnn_painn_train.py",
-    "destination": "src\\03_egnn_painn_train.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
+    "category": "release_metadata",
+    "source": "current cleaned local release package",
+    "destination": ".gitattributes",
+    "reason": "Repository metadata."
   },
   {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\04_ultimate_discovery.py",
-    "destination": "src\\04_ultimate_discovery.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\05_physics_purifier.py",
-    "destination": "src\\05_physics_purifier.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\05b_extract_candidates.py",
-    "destination": "src\\05b_extract_candidates.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\07_kamlet_jacobs_eval.py",
-    "destination": "src\\07_kamlet_jacobs_eval.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\08a_run_multiwfn_critic2.py",
-    "destination": "src\\08a_run_multiwfn_critic2.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\08b_ultimate_merge.py",
-    "destination": "src\\08b_ultimate_merge.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\09_eda_analysis.py",
-    "destination": "src\\09_eda_analysis.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\11_log_evaluation.py",
-    "destination": "src\\11_log_evaluation.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\12_density_calibration_database.py",
-    "destination": "src\\12_density_calibration_database.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\13b_candidate_space_al_pareto.py",
-    "destination": "src\\13b_candidate_space_al_pareto.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\14_ood_trigger_ablation.py",
-    "destination": "src\\14_ood_trigger_ablation.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\14_plot_final_figure1A_3d_pareto_surface.py",
-    "destination": "src\\14_plot_final_figure1A_3d_pareto_surface.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\18_build_10d_target_matrix.py",
-    "destination": "src\\18_build_10d_target_matrix.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\20_prepare_xtb_missing_for_current_db.py",
-    "destination": "src\\20_prepare_xtb_missing_for_current_db.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\21_finalize_al_iteration.py",
-    "destination": "src\\21_finalize_al_iteration.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\23_top_synthesizability_evidence.py",
-    "destination": "src\\23_top_synthesizability_evidence.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\add_final_heat_of_explosion_q_outputs_20260607.py",
-    "destination": "src\\add_final_heat_of_explosion_q_outputs_20260607.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\compute_final_synthesis_readiness_deepaudit_20260606.py",
-    "destination": "src\\compute_final_synthesis_readiness_deepaudit_20260606.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\integrate_external_retrosynthesis_into_final_database_20260606.py",
-    "destination": "src\\integrate_external_retrosynthesis_into_final_database_20260606.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\merge_final_top20_external_retrosynthesis_20260606.py",
-    "destination": "src\\merge_final_top20_external_retrosynthesis_20260606.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\parse_aizynthfinder_final_top20_20260606.py",
-    "destination": "src\\parse_aizynthfinder_final_top20_20260606.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\parse_top20_qm_validation_summary_20260607.py",
-    "destination": "src\\parse_top20_qm_validation_summary_20260607.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\render_qtaim_vmd_mechanism_20260607.py",
-    "destination": "src\\render_qtaim_vmd_mechanism_20260607.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\run_npj_targetwise_leakage_masking_ablation_20260607.py",
-    "destination": "src\\run_npj_targetwise_leakage_masking_ablation_20260607.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
-  },
-  {
-    "category": "core_script",
-    "source": "NPJ_submission\\code\\summarize_multiseed_al08_20260605.py",
-    "destination": "src\\summarize_multiseed_al08_20260605.py",
-    "reason": "Core workflow script used for molecular generation, model training, screening, QTAIM/BDE parsing, diagnostics, or figure-source generation."
+    "category": "release_metadata",
+    "source": "current cleaned local release package",
+    "destination": ".gitignore",
+    "reason": "Repository metadata."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\build_final_global_top20_and_manuscript_docs.py",
-    "destination": "analysis\\final_freeze_automation\\build_final_global_top20_and_manuscript_docs.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\check_08a_al08_ready_20260605.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\check_08a_al08_ready_20260605.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\finalize_al08_manuscript_package.py",
-    "destination": "analysis\\final_freeze_automation\\finalize_al08_manuscript_package.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\generate_al08_p1_error_vs_similarity.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\generate_al08_p1_error_vs_similarity.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\generate_al08_p3_p5_evidence.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\generate_al08_p3_p5_evidence.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\generate_al08_p4_ranking_stability.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\generate_al08_p4_ranking_stability.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\generate_final_model_comparison_and_outline_index.py",
-    "destination": "analysis\\final_freeze_automation\\generate_final_model_comparison_and_outline_index.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\organize_al08_final_data_inventory.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\organize_al08_final_data_inventory.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\post_al08_counts_20260605.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\post_al08_counts_20260605.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\sort_integrate_final_database_by_detonation.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\sort_integrate_final_database_by_detonation.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
     "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\summarize_multiseed_al08_20260605.py",
+    "source": "current cleaned local release package",
     "destination": "analysis\\final_freeze_automation\\summarize_multiseed_al08_20260605.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
+    "reason": "Retained computational analysis/ranking/source-data script."
   },
   {
-    "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\update_final_frozen_submission_docs.py",
-    "destination": "analysis\\final_freeze_automation\\update_final_frozen_submission_docs.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
-  },
-  {
-    "category": "analysis_script",
-    "source": "NPJ_submission\\code\\final_freeze_automation\\write_final_al08_completion_report.py",
-    "destination": "analysis\\final_freeze_automation\\write_final_al08_completion_report.py",
-    "reason": "Final-freeze analysis, ranking, diagnostics, and submission-data organization script."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\00_gpt_generator.py",
-    "destination": "legacy_workflow_snapshot\\00_gpt_generator.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\01_bayesian_fast_surrogate.py",
-    "destination": "legacy_workflow_snapshot\\01_bayesian_fast_surrogate.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\02_orca_oracle_parallel.py",
-    "destination": "legacy_workflow_snapshot\\02_orca_oracle_parallel.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\02c_orca_verification.py",
-    "destination": "legacy_workflow_snapshot\\02c_orca_verification.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\03_egnn_painn_train.py",
-    "destination": "legacy_workflow_snapshot\\03_egnn_painn_train.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\04_ultimate_discovery.py",
-    "destination": "legacy_workflow_snapshot\\04_ultimate_discovery.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\05_physics_purifier.py",
-    "destination": "legacy_workflow_snapshot\\05_physics_purifier.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\07_kamlet_jacobs_eval.py",
-    "destination": "legacy_workflow_snapshot\\07_kamlet_jacobs_eval.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\08a_run_multiwfn_critic2.py",
-    "destination": "legacy_workflow_snapshot\\08a_run_multiwfn_critic2.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\08b_ultimate_merge.py",
-    "destination": "legacy_workflow_snapshot\\08b_ultimate_merge.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\09_eda_analysis.py",
-    "destination": "legacy_workflow_snapshot\\09_eda_analysis.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\10_autonomous_flywheel.py",
-    "destination": "legacy_workflow_snapshot\\10_autonomous_flywheel.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\11_log_evaluation.py",
-    "destination": "legacy_workflow_snapshot\\11_log_evaluation.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\check_leakage.py",
-    "destination": "legacy_workflow_snapshot\\check_leakage.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\evaluate_3d.py",
-    "destination": "legacy_workflow_snapshot\\evaluate_3d.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\results_parse_xtb_features.py",
-    "destination": "legacy_workflow_snapshot\\results_parse_xtb_features.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\results_analyze_train_val_redundancy.py",
-    "destination": "legacy_workflow_snapshot\\results_analyze_train_val_redundancy.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\results_curate_molecule_clean_v1.py",
-    "destination": "legacy_workflow_snapshot\\results_curate_molecule_clean_v1.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "legacy_workflow_snapshot",
-    "source": "NPJ_submission\\code\\workflow_scripts_local_snapshot\\results_extract_industrial_benchmarks_v2.py",
-    "destination": "legacy_workflow_snapshot\\results_extract_industrial_benchmarks_v2.py",
-    "reason": "Historical workflow snapshot retained for provenance and reviewer inspection."
-  },
-  {
-    "category": "slurm_template",
-    "source": "NPJ_submission\\code\\slurm_templates\\run_03_10d_bde_AL08_20260605.slurm",
-    "destination": "slurm_templates\\run_03_10d_bde_AL08_20260605.slurm",
-    "reason": "Template Slurm script documenting high-performance-computing execution modes."
-  },
-  {
-    "category": "slurm_template",
-    "source": "NPJ_submission\\code\\slurm_templates\\run_03_10d_bde_AL08_seed_stability_20260605.slurm",
-    "destination": "slurm_templates\\run_03_10d_bde_AL08_seed_stability_20260605.slurm",
-    "reason": "Template Slurm script documenting high-performance-computing execution modes."
-  },
-  {
-    "category": "slurm_template",
-    "source": "NPJ_submission\\code\\slurm_templates\\run_08a_al08_20260605.slurm",
-    "destination": "slurm_templates\\run_08a_al08_20260605.slurm",
-    "reason": "Template Slurm script documenting high-performance-computing execution modes."
-  },
-  {
-    "category": "slurm_template",
-    "source": "NPJ_submission\\code\\slurm_templates\\run_p4_and_final_report_al08_20260605.slurm",
-    "destination": "slurm_templates\\run_p4_and_final_report_al08_20260605.slurm",
-    "reason": "Template Slurm script documenting high-performance-computing execution modes."
-  },
-  {
-    "category": "slurm_template",
-    "source": "NPJ_submission\\code\\slurm_templates\\run_post08b18_20_al08_20260605.slurm",
-    "destination": "slurm_templates\\run_post08b18_20_al08_20260605.slurm",
-    "reason": "Template Slurm script documenting high-performance-computing execution modes."
-  },
-  {
-    "category": "slurm_template",
-    "source": "NPJ_submission\\code\\slurm_templates\\run_summarize_multiseed_al08_20260605.slurm",
-    "destination": "slurm_templates\\run_summarize_multiseed_al08_20260605.slurm",
-    "reason": "Template Slurm script documenting high-performance-computing execution modes."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\requirements.txt",
-    "destination": "docs\\paper1_code_package\\requirements.txt",
-    "reason": "Existing submission-package documentation retained for traceability."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\environment_energetic_gnn_no_builds.yml",
-    "destination": "docs\\paper1_code_package\\environment_energetic_gnn_no_builds.yml",
-    "reason": "Existing submission-package documentation retained for traceability."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md",
-    "destination": "docs\\paper1_code_package\\ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md",
-    "reason": "Existing submission-package documentation retained for traceability."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\README_CODE_RELEASE.md",
-    "destination": "docs\\paper1_code_package\\README_CODE_RELEASE.md",
-    "reason": "Existing submission-package documentation retained for traceability."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\README_CODE_RELEASE_AL08.md",
-    "destination": "docs\\paper1_code_package\\README_CODE_RELEASE_AL08.md",
-    "reason": "Existing submission-package documentation retained for traceability."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\README_CODE_PACKAGE_AUDIT_20260609.md",
-    "destination": "docs\\paper1_code_package\\README_CODE_PACKAGE_AUDIT_20260609.md",
-    "reason": "Existing submission-package documentation retained for traceability."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\CODE_PACKAGE_MANIFEST_20260609.csv",
-    "destination": "docs\\paper1_code_package\\CODE_PACKAGE_MANIFEST_20260609.csv",
-    "reason": "Existing submission-package documentation retained for traceability."
-  },
-  {
-    "category": "paper1_code_package_document",
-    "source": "NPJ_submission\\code\\CODE_PACKAGE_ACTION_LOG_20260609.csv",
-    "destination": "docs\\paper1_code_package\\CODE_PACKAGE_ACTION_LOG_20260609.csv",
-    "reason": "Existing submission-package documentation retained for traceability."
+    "category": "release_metadata",
+    "source": "current cleaned local release package",
+    "destination": "CITATION.cff",
+    "reason": "Repository metadata."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\README_SUPPLEMENTARY_DATA_SYNCED.md",
+    "source": "current cleaned local release package",
+    "destination": "data\\processed\\Figure_1a_generation_screening_stream_refined_NPJstyle_20260626_source.csv",
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+  },
+  {
+    "category": "processed_data_for_smoke_test",
+    "source": "current cleaned local release package",
+    "destination": "data\\processed\\Figure_4_truephys_hgs_standard_3split_narrative_atlas_source_20260626.csv",
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+  },
+  {
+    "category": "processed_data_for_smoke_test",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\README_SUPPLEMENTARY_DATA_SYNCED.md",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Supplementary_Data_1_Curated_5432_Molecule_Database.csv",
+    "source": "current cleaned local release package",
+    "destination": "data\\processed\\standard_3split_hgs_testrows_20260626.csv",
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+  },
+  {
+    "category": "processed_data_for_smoke_test",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Supplementary_Data_1_Curated_5432_Molecule_Database.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Supplementary_Data_2_Target_Matrix_10D.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Supplementary_Data_2_Target_Matrix_10D.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Supplementary_Data_3_xTB_Feature_Matrix_10D.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Supplementary_Data_3_xTB_Feature_Matrix_10D.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Supplementary_Data_4_Validation_Predictions_Final_Hybrid_seed42.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Supplementary_Data_4_Validation_Predictions_Final_Hybrid_seed42.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Supplementary_Data_5_Final_Global_Top20_Retrosynthesis_Input.smi",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Supplementary_Data_5_Final_Global_Top20_Retrosynthesis_Input.smi",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Supplementary_Data_6_Common_Energetic_Molecules_DLPNoMP2_Enthalpy.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Supplementary_Data_6_Common_Energetic_Molecules_DLPNoMP2_Enthalpy.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Table_2_QTAIM_Aware_Stability_Constrained_Top20_20260607.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Table_2_QTAIM_Aware_Stability_Constrained_Top20_20260607.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Table_S_Figure3_HELS_10Target_Parity_Metrics_20260608.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Table_S_Figure3_HELS_10Target_Parity_Metrics_20260608.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Table_S_QTAIM_Counterfactual_Selection_20260607.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Table_S_QTAIM_Counterfactual_Selection_20260607.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
   },
   {
     "category": "processed_data_for_smoke_test",
-    "source": "NPJ_submission\\supplementary_information\\data\\Table_S_QTAIM_Top20_Route_AD_Audit_20260608.csv",
+    "source": "current cleaned local release package",
     "destination": "data\\processed\\Table_S_QTAIM_Top20_Route_AD_Audit_20260608.csv",
-    "reason": "Processed manuscript source/supplementary table copied from the existing submission package for lightweight reproducibility checks."
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+  },
+  {
+    "category": "processed_data_for_smoke_test",
+    "source": "current cleaned local release package",
+    "destination": "data\\processed\\truephys_hgs_standard_3split_prediction_long_20260626.csv",
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+  },
+  {
+    "category": "processed_data_for_smoke_test",
+    "source": "current cleaned local release package",
+    "destination": "data\\processed\\truephys_hgs_standard_3split_qh_hegnn_r2_summary_20260626.csv",
+    "reason": "Processed manuscript source/supplementary table for lightweight reproducibility checks."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\COMPUTATIONAL_PROVENANCE.md",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\FILE_SELECTION_NOTES.md",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\paper1_code_package\\CODE_PACKAGE_MANIFEST_20260626.csv",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\paper1_code_package\\ENVIRONMENT_AND_REPRODUCIBILITY_NOTES.md",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\paper1_code_package\\environment_energetic_gnn_no_builds.yml",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\paper1_code_package\\README_CODE_RELEASE.md",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\paper1_code_package\\README_MINIMAL_REPRODUCIBILITY_20260609.md",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\paper1_code_package\\requirements.txt",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\RELEASE_NOTES_v1.0.0.md",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "release_document",
+    "source": "current cleaned local release package",
+    "destination": "docs\\RELEASE_NOTES_v1.0.1.md",
+    "reason": "Release, provenance, environment, or package documentation."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\00_gpt_generator.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\01_bayesian_fast_surrogate.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\02_orca_oracle_parallel.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\02c_orca_verification.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\03_egnn_painn_train.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\04_ultimate_discovery.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\05_physics_purifier.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\07_kamlet_jacobs_eval.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\08a_run_multiwfn_critic2.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\08b_ultimate_merge.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\09_eda_analysis.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\10_autonomous_flywheel.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\11_log_evaluation.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\check_leakage.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\evaluate_3d.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\results_analyze_train_val_redundancy.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\results_curate_molecule_clean_v1.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\results_extract_industrial_benchmarks_v2.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "legacy_workflow_snapshot",
+    "source": "current cleaned local release package",
+    "destination": "legacy_workflow_snapshot\\results_parse_xtb_features.py",
+    "reason": "Selected computational workflow snapshot retained for provenance."
+  },
+  {
+    "category": "release_metadata",
+    "source": "current cleaned local release package",
+    "destination": "LICENSE",
+    "reason": "Repository metadata."
+  },
+  {
+    "category": "release_metadata",
+    "source": "current cleaned local release package",
+    "destination": "MINIMAL_REPRODUCIBILITY_CHECKLIST.md",
+    "reason": "Repository metadata."
+  },
+  {
+    "category": "release_metadata",
+    "source": "current cleaned local release package",
+    "destination": "README.md",
+    "reason": "Repository metadata."
+  },
+  {
+    "category": "reviewer_script",
+    "source": "current cleaned local release package",
+    "destination": "scripts\\minimal_reproduce_reviewer_check.py",
+    "reason": "Lightweight reviewer reproducibility check script."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_03_10d_bde_AL08_20260605.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_03_10d_bde_AL08_seed_stability_20260605.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_08a_al08_20260605.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_p4_and_final_report_al08_20260605.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_post08b18_20_al08_20260605.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_qh_hegnn_truephys_hgs_standard_3split_20260626.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_summarize_multiseed_al08_20260605.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "slurm_template",
+    "source": "current cleaned local release package",
+    "destination": "slurm_templates\\run_true_phys_feature_extract_20260624.slurm",
+    "reason": "HPC execution template documenting expensive calculation modes."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\03_egnn_painn_train.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\03_egnn_painn_train_truephys_hgs_repair_20260625.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\04_ultimate_discovery.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\05_physics_purifier.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\05b_extract_candidates.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\07_kamlet_jacobs_eval.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\08a_run_multiwfn_critic2.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\08b_ultimate_merge.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\09_eda_analysis.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\11_log_evaluation.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\12_density_calibration_database.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\13b_candidate_space_al_pareto.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\14_ood_trigger_ablation.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\18_build_10d_target_matrix.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\20_prepare_xtb_missing_for_current_db.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\21_finalize_al_iteration.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\23_top_synthesizability_evidence.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\add_final_heat_of_explosion_q_outputs_20260607.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\compute_final_synthesis_readiness_deepaudit_20260606.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\generate_truephys_hgs_standard_splits_20260626.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\integrate_external_retrosynthesis_into_final_database_20260606.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\merge_final_top20_external_retrosynthesis_20260606.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\parse_aizynthfinder_final_top20_20260606.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\parse_top20_qm_validation_summary_20260607.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\plot_fig4_truephys_hgs_standard_3split_release_20260626.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\qh_hegnn_truephys_hgs_repair_wrapper_20260625.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\redesign_figure1a_screening_stream_refined_20260626.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\render_qtaim_vmd_mechanism_20260607.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\run_npj_targetwise_leakage_masking_ablation_20260607.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\summarize_multiseed_al08_20260605.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
+  },
+  {
+    "category": "core_script",
+    "source": "current cleaned local release package",
+    "destination": "src\\true_phys_feature_extractor_20260624.py",
+    "reason": "Core computational, true-phys/HGS, or final figure source-data script."
   }
 ]

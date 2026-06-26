@@ -1,12 +1,14 @@
-# Code Release Draft
+# Code Release
 
-This directory stages a reviewer/repository code subset for the npj Computational Materials manuscript.
+This directory contains the computational code subset for the npj Computational Materials manuscript.
 
 ## Contents
 
-- `final_freeze_automation/`: scripts created for the AL08/final-freeze manuscript package, diagnostics, ranking, and final documentation.
-- `workflow_scripts_local_snapshot/`: local workflow scripts from `scrips/` and selected script snapshots from `results/`.
-- `slurm_templates/`: Slurm submission templates used or prepared for remote Workflow2.0 runs.
+- Core workflow scripts for molecular generation, QH-HEGNN/PaiNN training, xTB/ORCA/Multiwfn/Critic2 parsing, QTAIM/BDE merging, Pareto selection, OOD diagnostics and source-data generation.
+- `03_egnn_painn_train_truephys_hgs_repair_20260625.py`, `qh_hegnn_truephys_hgs_repair_wrapper_20260625.py`, `true_phys_feature_extractor_20260624.py`, `generate_truephys_hgs_standard_splits_20260626.py` and `plot_fig4_truephys_hgs_standard_3split_release_20260626.py`: scripts tied to the updated true-phys/HGS Fig. 4 evaluation.
+- `redesign_figure1a_screening_stream_refined_20260626.py`: source-data-backed script for the updated Fig. 1a workflow panel.
+- `final_freeze_automation/`: retained computational diagnostics, ranking and source-table scripts.
+- `slurm_templates/`: Slurm templates documenting the HPC execution modes used for true-phys feature extraction, true-phys/HGS evaluation and other expensive calculations.
 
 ## Excluded By Design
 
@@ -14,17 +16,9 @@ This directory stages a reviewer/repository code subset for the npj Computationa
 - Binary model artifacts such as `*.joblib`.
 - Large Office/PDF/image files not central to reproducible code review.
 - Private credentials, tokens, and local-only SSH configuration.
-- Historical backups and archive folders.
-
-## Before Public Deposition
-
-1. Add a license.
-2. Add an environment file, ideally `environment.yml` or `requirements.txt` plus CUDA/PyTorch/PyG notes.
-3. Replace hard-coded absolute remote paths with configurable paths where feasible.
-4. Add a small smoke-test dataset that exercises parsing, table generation, and figure generation without running full quantum calculations.
-5. Deposit the cleaned repository in GitHub and archive a release in Zenodo or Code Ocean for a DOI.
+- Manuscript-writing, reference-management, DOCX/SI-generation and superseded draft plotting scripts.
+- Historical backups and local archive folders.
 
 ## Reproducibility Boundary
 
-The released code supports reproducing parsed-table analyses and manuscript figures from released CSV data. Full end-to-end quantum reproduction requires ORCA, xTB, Multiwfn, Critic2, Slurm, and substantial compute resources; this should be described as computational provenance rather than a short smoke test.
-
+The released code supports reproducing parsed-table analyses and manuscript figure source data from released CSV files. Full end-to-end quantum and graph-learning reproduction requires ORCA, xTB, Multiwfn, Critic2, Slurm, PyTorch/PyG-style graph-learning dependencies and substantial compute resources.

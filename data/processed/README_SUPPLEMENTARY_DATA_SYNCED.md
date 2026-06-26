@@ -15,6 +15,11 @@ This folder contains the final supplementary data files for the npj Computationa
 
 - `Table_2_QTAIM_Aware_Stability_Constrained_Top20_20260607.csv`: source table for the main-text Top20 comparison table.
 - `Table_S_Figure3_HELS_10Target_Parity_Metrics_20260608.csv`: source table for the ten-target parity and validation metric summary.
+- `Figure_1a_generation_screening_stream_refined_NPJstyle_20260626_source.csv`: source descriptors for the refined Fig. 1a screening-flow panel.
+- `Figure_4_truephys_hgs_standard_3split_narrative_atlas_source_20260626.csv`: plotted source data for the updated Fig. 4 robustness and applicability-domain atlas.
+- `truephys_hgs_standard_3split_qh_hegnn_r2_summary_20260626.csv`: target-wise three-seed R2 summary for Random, Scaffold and Butina validation.
+- `standard_3split_hgs_testrows_20260626.csv`: validation-row metadata and nearest-train similarity values for the three Fig. 4 split families.
+- `truephys_hgs_standard_3split_prediction_long_20260626.csv`: long-form validation predictions used to build the Fig. 4 applicability curves.
 - `Table_S_QTAIM_Counterfactual_Selection_20260607.csv`: source table for QTAIM-aware counterfactual selection diagnostics.
 - `Table_S_QTAIM_Top20_Route_AD_Audit_20260608.csv`: source table for Top20 route-risk and applicability-domain audit.
 
